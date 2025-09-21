@@ -10,7 +10,14 @@ export default async function Home() {
 
   try {
     const response = await strapi.find("static-content", { populate: "*", locale: "uk" });
-    heroText = response?.data?.heroText ?? null;
+    // Type assertion for expected response shape
+    type StrapiResponse = {
+      data?: {
+        heroText?: string;
+      };
+    };
+    const typedResponse = response as StrapiResponse;
+    heroText = typedResponse?.data?.heroText ?? null;
   } catch (err) {
     console.error("Error fetching heroText:", err);
   }
