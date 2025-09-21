@@ -6,6 +6,9 @@ const strapi = new Strapi({
 });
 
 export default async function Home() {
+
+  console.log("process.env.STRAPI_URL ", process.env.STRAPI_URL);
+
   let heroText: string | null = null;
 
   try {
