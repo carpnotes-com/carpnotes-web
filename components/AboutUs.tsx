@@ -15,7 +15,6 @@ export default function AboutUs() {
                             <p>
                                 The story began on May 16, 2009, with the first carp catch — a moment that sparked a passion for fishing. From quiet mornings to the thrill of a perfect catch, we have always seen fishing as a way of life.
                             </p>
-
                             <p>
                                 Over time, we tracked patterns and shared stories, but no tool truly captured how anglers think and learn. That is why we built Carp Notes — an app made by anglers, for anglers.
                             </p>
