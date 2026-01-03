@@ -23,7 +23,7 @@ export default function Header() {
                         <Image
                             alt="Carp Notes Logo"
                             className="absolute h-[139.53%] left-[-10.6%] max-w-none top-[-18.6%] w-[119.21%]"
-                            src="http://localhost:3845/assets/d0f7cfccedf472ae2ca92ae1c67beabbc2476f5e.png"
+                            src="/assets/d0f7cfccedf472ae2ca92ae1c67beabbc2476f5e.png"
                             width={44}
                             height={29}
                             unoptimized
@@ -55,7 +55,7 @@ export default function Header() {
                         <Image
                             alt="Selected"
                             className="block max-w-none size-full"
-                            src="http://localhost:3845/assets/1dc556e3c636664e172cc8826076cc7bec893fd9.svg"
+                            src="/assets/1dc556e3c636664e172cc8826076cc7bec893fd9.svg"
                             width={14}
                             height={14}
                             unoptimized
@@ -80,7 +80,7 @@ export default function Header() {
                         <Image
                             alt="Unselected"
                             className="block max-w-none size-full"
-                            src="http://localhost:3845/assets/f26a6a828d29e8387dcdcf70cefeafb6aac2df97.svg"
+                            src="/assets/f26a6a828d29e8387dcdcf70cefeafb6aac2df97.svg"
                             width={13}
                             height={13}
                             unoptimized

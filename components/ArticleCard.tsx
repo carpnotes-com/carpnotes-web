@@ -34,7 +34,7 @@ export default function ArticleCard({ image, title, readTime = "10 min read", hr
                 {/* Time badge */}
                 <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px] w-fit">
                     <Image
-                        src="http://localhost:3845/assets/ec817c4f10ab6ddfc7b769dae1838c6183e25e9f.svg"
+                        src="/assets/ec817c4f10ab6ddfc7b769dae1838c6183e25e9f.svg"
                         alt="Time"
                         width={16}
                         height={16}

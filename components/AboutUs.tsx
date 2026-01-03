@@ -29,7 +29,7 @@ export default function AboutUs() {
                     <div className="flex flex-col gap-[12px] w-[465px]">
                         <div className="relative w-full h-[534px] rounded-[16px] overflow-hidden">
                             <Image
-                                src="http://localhost:3845/assets/794ec8c2034714e83937b740b8e2634f55b08b23.png"
+                                src="/assets/794ec8c2034714e83937b740b8e2634f55b08b23.png"
                                 alt="Kostiantyn & Alex – Founders of CarpNote"
                                 fill
                                 className="object-cover"

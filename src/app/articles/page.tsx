@@ -5,7 +5,7 @@ import ArticleCard from "../../../components/ArticleCard";
 
 export default function ArticlesPage() {
     const featuredArticle = {
-        image: "http://localhost:3845/assets/07d3cdfdaffa9938f3cb511e5fb804857fc13ac8.png",
+        image: "/assets/07d3cdfdaffa9938f3cb511e5fb804857fc13ac8.png",
         title: "From Notes to Big Catches: How Logging Sessions Improves Your Fishing",
         description: "Track your catches, share your stories, and connect with anglers like you — all in one place.",
         date: "25 jun 2025",
@@ -14,49 +14,49 @@ export default function ArticlesPage() {
 
     const articles = [
         {
-            image: "http://localhost:3845/assets/10ac25e6b6242c21737fe9e48fd3583a26bff702.png",
+            image: "/assets/10ac25e6b6242c21737fe9e48fd3583a26bff702.png",
             title: "Chasing the Dawn: Why Early Mornings Catch the Best Carp",
             readTime: "10 min read",
             slug: "chasing-dawn"
         },
         {
-            image: "http://localhost:3845/assets/abc252f9d5f81d96c7eaaa1163dca5f08015a8e1.png",
+            image: "/assets/abc252f9d5f81d96c7eaaa1163dca5f08015a8e1.png",
             title: "5 Proven Bait Strategies Every Angler Should Know",
             readTime: "10 min read",
             slug: "bait-strategies"
         },
         {
-            image: "http://localhost:3845/assets/f157db25f0e6b1de4206bb937365df5de3b22bc1.png",
+            image: "/assets/f157db25f0e6b1de4206bb937365df5de3b22bc1.png",
             title: "Chasing the Dawn: Why Early Mornings Catch the Best Carp",
             readTime: "10 min read",
             slug: "chasing-dawn"
         },
         {
-            image: "http://localhost:3845/assets/422ed7c17fad2eefefee5a35d8127483a22e677b.png",
+            image: "/assets/422ed7c17fad2eefefee5a35d8127483a22e677b.png",
             title: "From Notes to Big Catches: How Logging Sessions Improves Your Fishing",
             readTime: "10 min read",
             slug: "logging-sessions"
         },
         {
-            image: "http://localhost:3845/assets/ca0bc6891617a56390e000002fce084c1e716ed1.png",
+            image: "/assets/ca0bc6891617a56390e000002fce084c1e716ed1.png",
             title: "5 Proven Bait Strategies Every Angler Should Know",
             readTime: "10 min read",
             slug: "bait-strategies"
         },
         {
-            image: "http://localhost:3845/assets/a681db1a9ed6d6a10eab867c5b7c66b660bbd426.png",
+            image: "/assets/a681db1a9ed6d6a10eab867c5b7c66b660bbd426.png",
             title: "Chasing the Dawn: Why Early Mornings Catch the Best Carp",
             readTime: "10 min read",
             slug: "chasing-dawn"
         },
         {
-            image: "http://localhost:3845/assets/ce93da8d2963f4b1f487430b25d4cdc3329bf9c3.png",
+            image: "/assets/ce93da8d2963f4b1f487430b25d4cdc3329bf9c3.png",
             title: "From Notes to Big Catches: How Logging Sessions Improves Your Fishing",
             readTime: "10 min read",
             slug: "logging-sessions"
         },
         {
-            image: "http://localhost:3845/assets/2fc2f7e8154db70c2df70d8928db05f4a13918ce.png",
+            image: "/assets/2fc2f7e8154db70c2df70d8928db05f4a13918ce.png",
             title: "5 Proven Bait Strategies Every Angler Should Know",
             readTime: "10 min read",
             slug: "bait-strategies"
@@ -98,7 +98,7 @@ export default function ArticlesPage() {
                                 <div className="flex gap-[8px]">
                                     <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
                                         <Image
-                                            src="http://localhost:3845/assets/b34f8013423404fc00107d84d6c3f8c752dd6713.svg"
+                                            src="/assets/b34f8013423404fc00107d84d6c3f8c752dd6713.svg"
                                             alt="Calendar"
                                             width={16}
                                             height={16}
@@ -110,7 +110,7 @@ export default function ArticlesPage() {
                                     </div>
                                     <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
                                         <Image
-                                            src="http://localhost:3845/assets/ec817c4f10ab6ddfc7b769dae1838c6183e25e9f.svg"
+                                            src="/assets/ec817c4f10ab6ddfc7b769dae1838c6183e25e9f.svg"
                                             alt="Time"
                                             width={16}
                                             height={16}
@@ -138,7 +138,7 @@ export default function ArticlesPage() {
                                         Read Article
                                     </span>
                                     <Image
-                                        src="http://localhost:3845/assets/0536ba37faa2ec86154077d8dd35a195ed1da107.svg"
+                                        src="/assets/0536ba37faa2ec86154077d8dd35a195ed1da107.svg"
                                         alt=""
                                         width={16}
                                         height={16}
@@ -241,7 +241,7 @@ export default function ArticlesPage() {
                     {/* Previous Button */}
                     <button className="flex gap-[6px] items-center px-[16px] py-[6px]">
                         <Image
-                            src="http://localhost:3845/assets/413a5294f7f093a01763fa73e872feb73e1c150d.svg"
+                            src="/assets/413a5294f7f093a01763fa73e872feb73e1c150d.svg"
                             alt=""
                             width={24}
                             height={24}
@@ -271,7 +271,7 @@ export default function ArticlesPage() {
                             Next
                         </span>
                         <Image
-                            src="http://localhost:3845/assets/351b2289d97dc80d9ee3b87c4e4b99c18ad5f5c7.svg"
+                            src="/assets/351b2289d97dc80d9ee3b87c4e4b99c18ad5f5c7.svg"
                             alt=""
                             width={24}
                             height={24}

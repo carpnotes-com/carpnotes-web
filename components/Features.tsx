@@ -3,19 +3,19 @@ import Image from "next/image";
 export default function Features() {
     const features = [
         {
-            icon: "http://localhost:3845/assets/a368edf543c717b14d5cc4a5291f984e5687efc7.svg",
+            icon: "/assets/a368edf543c717b14d5cc4a5291f984e5687efc7.svg",
             title: "Discover",
             subtitle: "Find your next perfect lake",
             description: "Explore thousands of lakes across Europe with detailed information, maps, facilities, and fishing rules to plan your best session."
         },
         {
-            icon: "http://localhost:3845/assets/535b9231e42d6b634e8c55576d2226c857e2ec57.svg",
+            icon: "/assets/535b9231e42d6b634e8c55576d2226c857e2ec57.svg",
             title: "Log",
             subtitle: "Track your catches like a pro",
             description: "Easily log fish sizes, bait types, and conditions. Build your personal fishing history and learn from every session."
         },
         {
-            icon: "http://localhost:3845/assets/350a2ad3eaeed323f32fc3610b77e47e645a9d77.svg",
+            icon: "/assets/350a2ad3eaeed323f32fc3610b77e47e645a9d77.svg",
             title: "Connect",
             subtitle: "Share your journey with other anglers",
             description: "Join a growing community of carp enthusiasts. Share catches, swap tips, and get inspired by real fishing stories."
@@ -64,7 +64,7 @@ export default function Features() {
                                 {/* Separator */}
                                 <div className="h-[1px] w-full">
                                     <Image
-                                        src="http://localhost:3845/assets/631701c97adb57f5be4c73ae3788978c1cf674be.svg"
+                                        src="/assets/631701c97adb57f5be4c73ae3788978c1cf674be.svg"
                                         alt=""
                                         width={365}
                                         height={1}

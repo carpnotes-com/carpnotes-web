@@ -6,7 +6,7 @@ export default function Hero() {
             {/* Background image with overlay */}
             <div className="absolute inset-0">
                 <Image
-                    src="http://localhost:3845/assets/717b9474d0985b5396fa5a97a6ea540bfe231276.png"
+                    src="/assets/717b9474d0985b5396fa5a97a6ea540bfe231276.png"
                     alt="Carp fishing background"
                     fill
                     className="object-cover"
@@ -37,14 +37,14 @@ export default function Hero() {
                         <button className="bg-black border border-[#a6a6a6] h-[40px] w-[120px] rounded-[6px] flex items-center justify-center overflow-hidden hover:bg-gray-900 transition-colors">
                             <div className="flex items-center gap-[7px]">
                                 <Image
-                                    src="http://localhost:3845/assets/83eae7f898981e79d40f4e44ef351c383f04ad32.svg"
+                                    src="/assets/83eae7f898981e79d40f4e44ef351c383f04ad32.svg"
                                     alt="Google Play"
                                     width={21}
                                     height={24}
                                     unoptimized
                                 />
                                 <Image
-                                    src="http://localhost:3845/assets/c8b0f6e083444110d2cc7b09fa9ccd01b640564f.svg"
+                                    src="/assets/c8b0f6e083444110d2cc7b09fa9ccd01b640564f.svg"
                                     alt="Get it on Google Play"
                                     width={74}
                                     height={27}
@@ -56,14 +56,14 @@ export default function Hero() {
                         <button className="bg-black border border-[#a6a6a6] h-[40px] w-[120px] rounded-[6px] flex items-center justify-center overflow-hidden hover:bg-gray-900 transition-colors">
                             <div className="flex items-center gap-[7px]">
                                 <Image
-                                    src="http://localhost:3845/assets/97af1996fad0727665db0ec642ec764f88a96eb7.svg"
+                                    src="/assets/97af1996fad0727665db0ec642ec764f88a96eb7.svg"
                                     alt="Apple"
                                     width={20}
                                     height={24}
                                     unoptimized
                                 />
                                 <Image
-                                    src="http://localhost:3845/assets/a5274f78f92d5b0892f8de31f1c38eda9789f564.svg"
+                                    src="/assets/a5274f78f92d5b0892f8de31f1c38eda9789f564.svg"
                                     alt="Download on the App Store"
                                     width={78}
                                     height={25}
@@ -81,7 +81,7 @@ export default function Hero() {
                         <div className="rotate-[-9deg] origin-center">
                             <div className="bg-white border-4 border-white rounded-[8px] shadow-[0px_40px_80px_0px_rgba(0,0,0,0.04),0px_20px_40px_0px_rgba(0,0,0,0.12)] w-[200px] h-[430px] overflow-hidden">
                                 <Image
-                                    src="http://localhost:3845/assets/c5690bc3075193409b04f248b9c10f43760e2c27.png"
+                                    src="/assets/c5690bc3075193409b04f248b9c10f43760e2c27.png"
                                     alt="Social Feed"
                                     width={202}
                                     height={739}
@@ -97,7 +97,7 @@ export default function Hero() {
                         <div className="rotate-[8deg] origin-center">
                             <div className="bg-white border-4 border-white rounded-[8px] shadow-[0px_40px_80px_0px_rgba(0,0,0,0.04),0px_20px_40px_0px_rgba(0,0,0,0.12)] w-[200px] h-[430px] overflow-hidden">
                                 <Image
-                                    src="http://localhost:3845/assets/7a4f95d2ed92984abeec3505d2dc54349dcb8904.png"
+                                    src="/assets/7a4f95d2ed92984abeec3505d2dc54349dcb8904.png"
                                     alt="Sessions list"
                                     width={209}
                                     height={442}

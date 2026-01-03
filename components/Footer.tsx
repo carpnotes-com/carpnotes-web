@@ -16,14 +16,14 @@ export default function Footer() {
                         <button className="bg-black border border-[#a6a6a6] h-[40px] w-[120px] rounded-[6px] flex items-center justify-center overflow-hidden hover:bg-gray-900 transition-colors">
                             <div className="flex items-center gap-[7px]">
                                 <Image
-                                    src="http://localhost:3845/assets/83eae7f898981e79d40f4e44ef351c383f04ad32.svg"
+                                    src="/assets/83eae7f898981e79d40f4e44ef351c383f04ad32.svg"
                                     alt="Google Play"
                                     width={21}
                                     height={24}
                                     unoptimized
                                 />
                                 <Image
-                                    src="http://localhost:3845/assets/c8b0f6e083444110d2cc7b09fa9ccd01b640564f.svg"
+                                    src="/assets/c8b0f6e083444110d2cc7b09fa9ccd01b640564f.svg"
                                     alt="Get it on Google Play"
                                     width={74}
                                     height={27}
@@ -35,14 +35,14 @@ export default function Footer() {
                         <button className="bg-black border border-[#a6a6a6] h-[40px] w-[120px] rounded-[6px] flex items-center justify-center overflow-hidden hover:bg-gray-900 transition-colors">
                             <div className="flex items-center gap-[7px]">
                                 <Image
-                                    src="http://localhost:3845/assets/97af1996fad0727665db0ec642ec764f88a96eb7.svg"
+                                    src="/assets/97af1996fad0727665db0ec642ec764f88a96eb7.svg"
                                     alt="Apple"
                                     width={20}
                                     height={24}
                                     unoptimized
                                 />
                                 <Image
-                                    src="http://localhost:3845/assets/a5274f78f92d5b0892f8de31f1c38eda9789f564.svg"
+                                    src="/assets/a5274f78f92d5b0892f8de31f1c38eda9789f564.svg"
                                     alt="Download on the App Store"
                                     width={78}
                                     height={25}
@@ -56,7 +56,7 @@ export default function Footer() {
                 {/* Image */}
                 <div className="flex-1 relative aspect-[1536/1024]">
                     <Image
-                        src="http://localhost:3845/assets/ec44a27702fba673fc9fc5ec826dda56efc190b1.png"
+                        src="/assets/ec44a27702fba673fc9fc5ec826dda56efc190b1.png"
                         alt="Carp fishing"
                         fill
                         className="object-cover"
@@ -76,7 +76,7 @@ export default function Footer() {
                     <div className="flex gap-[8px]">
                         <a href="#" className="w-[24px] h-[24px] hover:opacity-80 transition-opacity">
                             <Image
-                                src="http://localhost:3845/assets/9e3fa180f3610ed1580709557a9650b325afd256.svg"
+                                src="/assets/9e3fa180f3610ed1580709557a9650b325afd256.svg"
                                 alt="TikTok"
                                 width={24}
                                 height={24}
@@ -85,7 +85,7 @@ export default function Footer() {
                         </a>
                         <a href="#" className="w-[24px] h-[24px] hover:opacity-80 transition-opacity">
                             <Image
-                                src="http://localhost:3845/assets/64d5c53006965f50e036f236ea7b967b87e181ee.svg"
+                                src="/assets/64d5c53006965f50e036f236ea7b967b87e181ee.svg"
                                 alt="Instagram"
                                 width={24}
                                 height={24}
@@ -94,7 +94,7 @@ export default function Footer() {
                         </a>
                         <a href="#" className="w-[24px] h-[24px] hover:opacity-80 transition-opacity">
                             <Image
-                                src="http://localhost:3845/assets/487484606dd3331f44ca0bde94934def5d6e4d15.svg"
+                                src="/assets/487484606dd3331f44ca0bde94934def5d6e4d15.svg"
                                 alt="Facebook"
                                 width={24}
                                 height={24}
