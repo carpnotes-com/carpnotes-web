@@ -174,7 +174,7 @@ export default function ArticleDetailPage() {
                                 Sharing and Learning Together
                             </h2>
                             <p className="font-dmSans text-[18px] leading-[1.4] text-[#545454]">
-                                Notes aren't just personal — they can strengthen the fishing community. Sharing logs, insights, and success stories with fellow anglers helps everyone grow. What works for one lake may inspire someone else at another. Together, anglers build a pool of collective knowledge that pushes the sport forward.
+                                Notes are not just personal — they can strengthen the fishing community. Sharing logs, insights, and success stories with fellow anglers helps everyone grow. What works for one lake may inspire someone else at another. Together, anglers build a pool of collective knowledge that pushes the sport forward.
                             </p>
                         </div>
 
@@ -192,7 +192,7 @@ export default function ArticleDetailPage() {
                                 Final Thoughts
                             </h2>
                             <p className="font-dmSans text-[18px] leading-[1.4] text-[#545454]">
-                                Fishing is a lifelong journey of learning. Logging your sessions is the bridge between casual outings and consistent success. By turning every trip into knowledge, you'll find yourself not just fishing more often — but fishing better. And that's how notes lead to big catches.
+                                Fishing is a lifelong journey of learning. Logging your sessions is the bridge between casual outings and consistent success. By turning every trip into knowledge, you will find yourself not just fishing more often — but fishing better. And that is how notes lead to big catches.
                             </p>
                         </div>
                     </div>

@@ -13,15 +13,15 @@ export default function AboutUs() {
 
                         <div className="font-dmSans text-[22px] leading-[1.3] w-[564px] space-y-[32px]">
                             <p>
-                                The story began on May 16, 2009, with the first carp catch — a moment that sparked a passion for fishing. From quiet mornings to the thrill of a perfect catch, we've always seen fishing as a way of life.
+                                The story began on May 16, 2009, with the first carp catch — a moment that sparked a passion for fishing. From quiet mornings to the thrill of a perfect catch, we have always seen fishing as a way of life.
                             </p>
 
                             <p>
-                                Over time, we tracked patterns and shared stories, but no tool truly captured how anglers think and learn. That's why we built Carp Notes — an app made by anglers, for anglers.
+                                Over time, we tracked patterns and shared stories, but no tool truly captured how anglers think and learn. That is why we built Carp Notes — an app made by anglers, for anglers.
                             </p>
 
                             <p>
-                                We're a small team who values every cast and bite. Carp Notes helps log sessions, reflect, and catch smarter. This is just the beginning, and we're excited to grow with the fishing community.
+                                We are a small team who values every cast and bite. Carp Notes helps log sessions, reflect, and catch smarter. This is just the beginning, and we are excited to grow with the fishing community.
                             </p>
                         </div>
                     </div>
