@@ -1,33 +1,22 @@
 // app/page.tsx
-import Strapi from "strapi-sdk-js";
+import Header from "../../components/Header";
+import Hero from "../../components/Hero";
+import Features from "../../components/Features";
+import Articles from "../../components/Articles";
+import AboutUs from "../../components/AboutUs";
+import Footer from "../../components/Footer";
 
-const strapi = new Strapi({
-  url: process.env.STRAPI_URL,
-});
-
-export default async function Home() {
-
-  console.log("process.env.STRAPI_URL ", process.env.STRAPI_URL);
-
-  let heroText: string | null = null;
-
-  try {
-    const response = await strapi.find("static-content", { populate: "*", locale: "uk" });
-    // Type assertion for expected response shape
-    type StrapiResponse = {
-      data?: {
-        heroText?: string;
-      };
-    };
-    const typedResponse = response as StrapiResponse;
-    heroText = typedResponse?.data?.heroText ?? null;
-  } catch (err) {
-    console.error("Error fetching heroText:", err);
-  }
-
+export default function Home() {
   return (
-    <div>
-      {heroText ? heroText : "No hero text found"}
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <Hero />
+        <Features />
+        <Articles />
+        <AboutUs />
+      </main>
+      <Footer />
     </div>
   );
 }
