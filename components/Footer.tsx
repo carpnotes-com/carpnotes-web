@@ -12,24 +12,27 @@ export default function Footer() {
         <div className="flex">
           <Link href='https://www.tiktok.com/'>
             <Image
-              src={'../assets/tiktok-logo.png'}
+              src={'/assets/tiktok-logo.png'}
               alt="TikTok"
               width={28}
+              height={28} 
             />
           </Link>
           <Link href='https://www.instagram.com/'>
             <Image
-              src={'../assets/instagram-logo.png'}
+              src={'/assets/instagram-logo.png'}
               alt="Instagram"
-              width={28}
+              width={28}  
+              height={28}
               className="mx-1"
             />
           </Link>
           <Link href='https://www.facebook.com/'>
             <Image
-              src={'../assets/facebook-logo.png'}
+              src={'/assets/facebook-logo.png'}
               alt="Facebook"
               width={28}
+              height={28}
             />
           </Link>
         </div>

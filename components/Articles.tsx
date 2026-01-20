@@ -21,24 +21,24 @@ export default function Articles() {
           <div className="border-amber-200 border-2 rounded-full p-2 mb-10 ml-auto">
             <Link href="/articles" className="text-amber-200">
               Read More Articles
-              <Image src={'../assets/arrow.png'} alt="Arrow" className="inline ml-3 w-5" />
+              <Image src={'/assets/arrow.png'} alt="Arrow" className="inline ml-3 w-5" width={20} height={20} />
             </Link>
           </div>
         </div>
 
         <div className="flex justify-between">
           <ArticleCard
-            image={'../assets/fisher-holding-rod.png'}
+            image={'/assets/fisher-holding-rod.png'}
             timeToRead="10"
             topic="Chasing the Dawn: Why Early Mornings Catch the Best Carp"
           />
           <ArticleCard
-            image={'../assets/fisher-on-the-rocks.png'}
+            image={'/assets/fisher-on-the-rocks.png'}
             timeToRead="10"
             topic="From Notes to Big Catches: How Logging Sessions Improves Your Fishing"
           />
           <ArticleCard
-            image={'../assets/fisher-on-the-coast.png'}
+            image={'/assets/fisher-on-the-coast.png'}
             timeToRead="10"
             topic="5 Proven Bait Strategies Every Angler Should Know"
           />
