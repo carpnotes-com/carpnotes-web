@@ -1,7 +1,7 @@
+import ArticleCard from "@/components/ArticleCard";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 import Image from "next/image";
-import Header from "../../../../components/Header";
-import Footer from "../../../../components/Footer";
-import ArticleCard from "../../../../components/ArticleCard";
 
 export default function ArticleDetailPage() {
     const recommendedArticles = [
@@ -211,9 +211,9 @@ export default function ArticleDetailPage() {
                             <div key={index} className="flex-1">
                                 <ArticleCard
                                     image={article.image}
-                                    title={article.title}
-                                    readTime={article.readTime}
-                                    href={`/articles/${article.slug}`}
+                                    topic={article.title}
+                                    timeToRead={article.readTime}
+                                    
                                 />
                             </div>
                         ))}

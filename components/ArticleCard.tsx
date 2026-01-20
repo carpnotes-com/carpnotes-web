@@ -1,8 +1,7 @@
 import Image, { StaticImageData } from "next/image"
-import Watch from "../public/assets/watch.png"
 
 interface ArticleCardProps {
-  image: StaticImageData,
+  image: string,
   timeToRead: string,
   topic: string,
 }
@@ -19,7 +18,7 @@ export default function ArticleCard({
       <div className="absolute inset-0 flex top-auto justify-center flex-col mx-5 mb-14">
         <div className="text-md text-white bg-white/15 rounded-full mr-auto p-1.5 flex items-center">
           <Image
-            src={Watch}
+            src={'../assets/watch.png'}
             alt="Picture"
             width={16}
             className="mr-1"

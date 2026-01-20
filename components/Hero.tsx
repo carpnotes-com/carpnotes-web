@@ -1,15 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 import StoreButtons from "./StoreButtons";
-import HeroBackground from "../public/assets/Hero.jpg"
-import PhoneLeft from "../public/assets/phone-left.png";
-import PhoneRight from "../public/assets/phone-right.png";
 
 export default function Hero() {
     return (
         <section>
             <Image
-                src={HeroBackground}
+                src={'/assets/Hero.jpg'}
                 alt='Hero'
                 className='w-full'
             />
@@ -26,12 +22,12 @@ export default function Hero() {
 
                 <div className='flex ml-auto px-12'>
                     <Image
-                        src={PhoneRight}
+                        src={'/assets/phone-right.png'}
                         alt='PhoneRight'
                         className='w-60 rounded-3xl -rotate-5'
                     />
                     <Image
-                        src={PhoneRight}
+                        src={'/assets/phone-right.png'}
                         alt='PhoneRight'
                         className='w-60 rounded-3xl rotate-5'
                     />
