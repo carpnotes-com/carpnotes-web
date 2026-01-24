@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ArticleCard from "./ArticleCard";
 import Arrow from "../public/assets/arrow.png";
+import Watch from "../public/assets/watch.png";
 import FisherWithRod from "../public/assets/fisher-holding-rod.png";
 import FisherOnRocks from "../public/assets/fisher-on-the-rocks.png";
 import FisherOnCoast from "../public/assets/fisher-on-the-coast.png";
@@ -26,19 +27,19 @@ export default function Articles() {
           </div>
         </div>
 
-        <div className="flex justify-between">
+        <div className="flex justify-between h-screen">
           <ArticleCard
-            image={FisherWithRod}
+            imageUrl={FisherWithRod.src}
             timeToRead="10"
             topic="Chasing the Dawn: Why Early Mornings Catch the Best Carp"
           />
           <ArticleCard
-            image={FisherOnRocks}
+            imageUrl={FisherOnRocks.src}
             timeToRead="10"
             topic="From Notes to Big Catches: How Logging Sessions Improves Your Fishing"
           />
           <ArticleCard
-            image={FisherOnCoast}
+            imageUrl={FisherOnCoast.src}
             timeToRead="10"
             topic="5 Proven Bait Strategies Every Angler Should Know"
           />
