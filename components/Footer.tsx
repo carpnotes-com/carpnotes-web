@@ -1,4 +1,7 @@
 import Image from "next/image";
+import TikTokLogo from "../public/assets/tiktok-logo.png";
+import InstagramLogo from "../public/assets/instagram-logo.png";
+import FacebookLogo from "../public/assets/facebook-logo.png";
 import Link from "next/link";
 
 export default function Footer() {
@@ -12,27 +15,24 @@ export default function Footer() {
         <div className="flex">
           <Link href='https://www.tiktok.com/'>
             <Image
-              src={'/assets/tiktok-logo.png'}
+              src={TikTokLogo}
               alt="TikTok"
               width={28}
-              height={28} 
             />
           </Link>
           <Link href='https://www.instagram.com/'>
             <Image
-              src={'/assets/instagram-logo.png'}
+              src={InstagramLogo}
               alt="Instagram"
-              width={28}  
-              height={28}
+              width={28}
               className="mx-1"
             />
           </Link>
           <Link href='https://www.facebook.com/'>
             <Image
-              src={'/assets/facebook-logo.png'}
+              src={FacebookLogo}
               alt="Facebook"
               width={28}
-              height={28}
             />
           </Link>
         </div>

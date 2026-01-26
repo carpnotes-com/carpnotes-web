@@ -1,10 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 import StoreButtons from "./StoreButtons";
+import HeroBackground from "../public/assets/Hero.jpg"
+import PhoneLeft from "../public/assets/phone-left.png";
+import PhoneRight from "../public/assets/phone-right.png";
 
 export default function Hero() {
     return (
-        <section className="relative bg-cover bg-center" style={{ backgroundImage: "url('/assets/Hero.jpg')" }}>
-            <div className="flex items-center mx-10 py-32">
+        <section>
+            <Image
+                src={HeroBackground}
+                alt='Hero'
+                className='w-full'
+            />
+            <div className="flex absolute inset-0 items-center mx-10">
                 <div className='flex flex-col w-xl'>
                     <div className='text-white text-7xl'>
                         Every Catch Has a Story.
@@ -17,18 +26,14 @@ export default function Hero() {
 
                 <div className='flex ml-auto px-12'>
                     <Image
-                        src={'/assets/phone-right.png'}
+                        src={PhoneRight}
                         alt='PhoneRight'
                         className='w-60 rounded-3xl -rotate-5'
-                        width={240}
-                        height={480}
                     />
                     <Image
-                        src={'/assets/phone-right.png'}
+                        src={PhoneRight}
                         alt='PhoneRight'
                         className='w-60 rounded-3xl rotate-5'
-                        width={240}
-                        height={480}
                     />
                 </div>
             </div>

@@ -1,8 +1,7 @@
-import ArticleCard from "@/components/ArticleCard";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Image from "next/image";
-
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import ArticleCard from "../../../components/ArticleCard";
 
 export default function ArticlesPage() {
     const featuredArticle = {
@@ -165,15 +164,17 @@ export default function ArticlesPage() {
                         <div className="flex-1">
                             <ArticleCard
                                 image={articles[0].image}
-                                topic={articles[0].title}
-                                timeToRead={articles[0].readTime}
+                                title={articles[0].title}
+                                readTime={articles[0].readTime}
+                                href={`/articles/${articles[0].slug}`}
                             />
                         </div>
                         <div className="w-[365.33px]">
                             <ArticleCard
                                 image={articles[1].image}
-                                topic={articles[1].title}
-                                timeToRead={articles[1].readTime}
+                                title={articles[1].title}
+                                readTime={articles[1].readTime}
+                                href={`/articles/${articles[1].slug}`}
                             />
                         </div>
                     </div>
@@ -183,22 +184,25 @@ export default function ArticlesPage() {
                         <div className="flex-1">
                             <ArticleCard
                                 image={articles[2].image}
-                                topic={articles[2].title}
-                                timeToRead={articles[2].readTime}
+                                title={articles[2].title}
+                                readTime={articles[2].readTime}
+                                href={`/articles/${articles[2].slug}`}
                             />
                         </div>
                         <div className="flex-1">
                             <ArticleCard
                                 image={articles[3].image}
-                                topic={articles[3].title}
-                                timeToRead={articles[3].readTime}
+                                title={articles[3].title}
+                                readTime={articles[3].readTime}
+                                href={`/articles/${articles[3].slug}`}
                             />
                         </div>
                         <div className="flex-1">
                             <ArticleCard
                                 image={articles[4].image}
-                                topic={articles[4].title}
-                                timeToRead={articles[4].readTime}
+                                title={articles[4].title}
+                                readTime={articles[4].readTime}
+                                href={`/articles/${articles[4].slug}`}
                             />
                         </div>
                     </div>
@@ -208,22 +212,25 @@ export default function ArticlesPage() {
                         <div className="flex-1">
                             <ArticleCard
                                 image={articles[5].image}
-                                topic={articles[5].title}
-                                timeToRead={articles[5].readTime}
+                                title={articles[5].title}
+                                readTime={articles[5].readTime}
+                                href={`/articles/${articles[5].slug}`}
                             />
                         </div>
                         <div className="flex-1">
                             <ArticleCard
                                 image={articles[6].image}
-                                topic={articles[6].title}
-                                timeToRead={articles[6].readTime}
+                                title={articles[6].title}
+                                readTime={articles[6].readTime}
+                                href={`/articles/${articles[6].slug}`}
                             />
                         </div>
                         <div className="flex-1">
                             <ArticleCard
                                 image={articles[7].image}
-                                topic={articles[7].title}
-                                timeToRead={articles[7].readTime}
+                                title={articles[7].title}
+                                readTime={articles[7].readTime}
+                                href={`/articles/${articles[7].slug}`}
                             />
                         </div>
                     </div>
