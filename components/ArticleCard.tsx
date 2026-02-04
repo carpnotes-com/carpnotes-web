@@ -1,21 +1,26 @@
 import Image, { StaticImageData } from "next/image"
+import Link from "next/link"
 import Watch from "../public/assets/watch.png"
 
 interface ArticleCardProps {
-  imageUrl: string,
-  timeToRead: string,
-  topic: string,
+  image: string,
+  readTime: string,
+  title: string,
+  href: string,
+  additional_styles?: string,
 }
 
 export default function ArticleCard({
-  imageUrl,
-  timeToRead,
-  topic,
+  image,
+  readTime,
+  title,
+  href,
+  additional_styles,
 }:ArticleCardProps) {
   return (
     <div
-      className="bg-cover bg-center rounded-xl h-md w-md flex"
-      style={{ backgroundImage: `url(${imageUrl})` }}
+      className={`bg-cover bg-center rounded-xl flex flex-col h-[100%] ${additional_styles}`}
+      style={{ backgroundImage: `url(${image})` }}
     >
       <div className="flex justify-center flex-col mt-auto mx-5 mb-14">
         <div className="text-md text-white bg-white/15 rounded-full mr-auto p-1.5 flex items-center">
@@ -25,11 +30,13 @@ export default function ArticleCard({
             width={16}
             className="mr-1"
           />
-          {timeToRead} min read
+          {readTime}
         </div>
-        <div className="text-3xl text-white font-light">
-          {topic}
-        </div>
+        <Link href={href}>
+          <div className="text-3xl text-white font-light">
+            {title}
+          </div>
+        </Link>
       </div>
     </div>
   )

@@ -7,8 +7,11 @@ import Watch from "../public/assets/watch.png";
 import FisherWithRod from "../public/assets/fisher-holding-rod.png";
 import FisherOnRocks from "../public/assets/fisher-on-the-rocks.png";
 import FisherOnCoast from "../public/assets/fisher-on-the-coast.png";
+import { getAllArticles } from "../server/database-functions";
 
-export default function Articles() {
+export default async function Articles() {
+  const {articles, error } = await getAllArticles();
+
   return (
     <section className="bg-cyan-900">
       <div className="mx-10 py-25">
@@ -27,21 +30,27 @@ export default function Articles() {
           </div>
         </div>
 
-        <div className="flex justify-between h-screen">
+        <div className="flex gap-[32px] justify-between h-screen">
           <ArticleCard
-            imageUrl={FisherWithRod.src}
-            timeToRead="10"
-            topic="Chasing the Dawn: Why Early Mornings Catch the Best Carp"
+            image={articles[0].image_url}
+            readTime={articles[0].read_time}
+            title={articles[0].title}
+            href={articles[0].slug}
+            additional_styles="w-md"
           />
           <ArticleCard
-            imageUrl={FisherOnRocks.src}
-            timeToRead="10"
-            topic="From Notes to Big Catches: How Logging Sessions Improves Your Fishing"
+            image={articles[1].image_url}
+            readTime={articles[1].read_time}
+            title={articles[1].title}
+            href={articles[1].slug}
+            additional_styles="w-md"
           />
           <ArticleCard
-            imageUrl={FisherOnCoast.src}
-            timeToRead="10"
-            topic="5 Proven Bait Strategies Every Angler Should Know"
+            image={articles[2].image_url}
+            readTime={articles[2].read_time}
+            title={articles[2].title}
+            href={articles[2].slug}
+            additional_styles="w-md"
           />
         </div>
       </div>

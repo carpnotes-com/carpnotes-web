@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Header from "../../../../components/Header";
-import Footer from "../../../../components/Footer";
-import ArticleCard from "../../../../components/ArticleCard";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import ArticleCard from "../../../components/ArticleCard";
 
 export default function ArticleDetailPage() {
     const recommendedArticles = [

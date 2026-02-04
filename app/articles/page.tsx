@@ -1,9 +1,13 @@
 import Image from "next/image";
-import Header from "../../../components/Header";
-import Footer from "../../../components/Footer";
-import ArticleCard from "../../../components/ArticleCard";
+import { createClient } from '@supabase/supabase-js'
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import ArticleCard from "../../components/ArticleCard";
+import { getAllArticles } from "../../server/database-functions";
 
-export default function ArticlesPage() {
+export default async function ArticlesPage() {
+    const { articles, error } = await getAllArticles();
+
     const featuredArticle = {
         image: "/assets/07d3cdfdaffa9938f3cb511e5fb804857fc13ac8.png",
         title: "From Notes to Big Catches: How Logging Sessions Improves Your Fishing",
@@ -11,57 +15,6 @@ export default function ArticlesPage() {
         date: "25 jun 2025",
         readTime: "10 min read"
     };
-
-    const articles = [
-        {
-            image: "/assets/10ac25e6b6242c21737fe9e48fd3583a26bff702.png",
-            title: "Chasing the Dawn: Why Early Mornings Catch the Best Carp",
-            readTime: "10 min read",
-            slug: "chasing-dawn"
-        },
-        {
-            image: "/assets/abc252f9d5f81d96c7eaaa1163dca5f08015a8e1.png",
-            title: "5 Proven Bait Strategies Every Angler Should Know",
-            readTime: "10 min read",
-            slug: "bait-strategies"
-        },
-        {
-            image: "/assets/f157db25f0e6b1de4206bb937365df5de3b22bc1.png",
-            title: "Chasing the Dawn: Why Early Mornings Catch the Best Carp",
-            readTime: "10 min read",
-            slug: "chasing-dawn"
-        },
-        {
-            image: "/assets/422ed7c17fad2eefefee5a35d8127483a22e677b.png",
-            title: "From Notes to Big Catches: How Logging Sessions Improves Your Fishing",
-            readTime: "10 min read",
-            slug: "logging-sessions"
-        },
-        {
-            image: "/assets/ca0bc6891617a56390e000002fce084c1e716ed1.png",
-            title: "5 Proven Bait Strategies Every Angler Should Know",
-            readTime: "10 min read",
-            slug: "bait-strategies"
-        },
-        {
-            image: "/assets/a681db1a9ed6d6a10eab867c5b7c66b660bbd426.png",
-            title: "Chasing the Dawn: Why Early Mornings Catch the Best Carp",
-            readTime: "10 min read",
-            slug: "chasing-dawn"
-        },
-        {
-            image: "/assets/ce93da8d2963f4b1f487430b25d4cdc3329bf9c3.png",
-            title: "From Notes to Big Catches: How Logging Sessions Improves Your Fishing",
-            readTime: "10 min read",
-            slug: "logging-sessions"
-        },
-        {
-            image: "/assets/2fc2f7e8154db70c2df70d8928db05f4a13918ce.png",
-            title: "5 Proven Bait Strategies Every Angler Should Know",
-            readTime: "10 min read",
-            slug: "bait-strategies"
-        }
-    ];
 
     return (
         <main className="bg-white">
@@ -98,8 +51,8 @@ export default function ArticlesPage() {
                                 <div className="flex gap-[8px]">
                                     <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
                                         <Image
-                                            src="/assets/b34f8013423404fc00107d84d6c3f8c752dd6713.svg"
-                                            alt="Calendar"
+                                            src="/assets/watch.png"
+                                            alt="Watch"
                                             width={16}
                                             height={16}
                                             unoptimized
@@ -110,7 +63,7 @@ export default function ArticlesPage() {
                                     </div>
                                     <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
                                         <Image
-                                            src="/assets/ec817c4f10ab6ddfc7b769dae1838c6183e25e9f.svg"
+                                            src="/assets/watch.png"
                                             alt="Time"
                                             width={16}
                                             height={16}
@@ -138,7 +91,7 @@ export default function ArticlesPage() {
                                         Read Article
                                     </span>
                                     <Image
-                                        src="/assets/0536ba37faa2ec86154077d8dd35a195ed1da107.svg"
+                                        src="/assets/arrow.png"
                                         alt=""
                                         width={16}
                                         height={16}
@@ -163,17 +116,17 @@ export default function ArticlesPage() {
                     <div className="flex gap-[32px] h-[534px]">
                         <div className="flex-1">
                             <ArticleCard
-                                image={articles[0].image}
+                                image={articles[0].image_url}
                                 title={articles[0].title}
-                                readTime={articles[0].readTime}
+                                readTime={articles[0].read_time}
                                 href={`/articles/${articles[0].slug}`}
                             />
                         </div>
                         <div className="w-[365.33px]">
                             <ArticleCard
-                                image={articles[1].image}
+                                image={articles[1].image_url}
                                 title={articles[1].title}
-                                readTime={articles[1].readTime}
+                                readTime={articles[1].read_time}
                                 href={`/articles/${articles[1].slug}`}
                             />
                         </div>
@@ -183,25 +136,25 @@ export default function ArticlesPage() {
                     <div className="flex gap-[32px] h-[534px]">
                         <div className="flex-1">
                             <ArticleCard
-                                image={articles[2].image}
+                                image={articles[2].image_url}
                                 title={articles[2].title}
-                                readTime={articles[2].readTime}
+                                readTime={articles[2].read_time}
                                 href={`/articles/${articles[2].slug}`}
                             />
                         </div>
                         <div className="flex-1">
                             <ArticleCard
-                                image={articles[3].image}
+                                image={articles[3].image_url}
                                 title={articles[3].title}
-                                readTime={articles[3].readTime}
+                                readTime={articles[3].read_time}
                                 href={`/articles/${articles[3].slug}`}
                             />
                         </div>
                         <div className="flex-1">
                             <ArticleCard
-                                image={articles[4].image}
+                                image={articles[4].image_url}
                                 title={articles[4].title}
-                                readTime={articles[4].readTime}
+                                readTime={articles[4].read_time}
                                 href={`/articles/${articles[4].slug}`}
                             />
                         </div>
@@ -211,25 +164,25 @@ export default function ArticlesPage() {
                     <div className="flex gap-[32px] h-[534px]">
                         <div className="flex-1">
                             <ArticleCard
-                                image={articles[5].image}
+                                image={articles[5].image_url}
                                 title={articles[5].title}
-                                readTime={articles[5].readTime}
+                                readTime={articles[5].read_time}
                                 href={`/articles/${articles[5].slug}`}
                             />
                         </div>
                         <div className="flex-1">
                             <ArticleCard
-                                image={articles[6].image}
+                                image={articles[6].image_url}
                                 title={articles[6].title}
-                                readTime={articles[6].readTime}
+                                readTime={articles[6].read_time}
                                 href={`/articles/${articles[6].slug}`}
                             />
                         </div>
                         <div className="flex-1">
                             <ArticleCard
-                                image={articles[7].image}
+                                image={articles[7].image_url}
                                 title={articles[7].title}
-                                readTime={articles[7].readTime}
+                                readTime={articles[7].read_time}
                                 href={`/articles/${articles[7].slug}`}
                             />
                         </div>
@@ -241,10 +194,10 @@ export default function ArticlesPage() {
                     {/* Previous Button */}
                     <button className="flex gap-[6px] items-center px-[16px] py-[6px]">
                         <Image
-                            src="/assets/413a5294f7f093a01763fa73e872feb73e1c150d.svg"
+                            src="/assets/arrow-left.png"
                             alt=""
-                            width={24}
-                            height={24}
+                            width={8}
+                            height={8}
                             unoptimized
                         />
                         <span className="font-dmSans text-[16px] leading-[1.2] text-[#5e6d7a]">
@@ -271,10 +224,10 @@ export default function ArticlesPage() {
                             Next
                         </span>
                         <Image
-                            src="/assets/351b2289d97dc80d9ee3b87c4e4b99c18ad5f5c7.svg"
+                            src="/assets/arrow-right.png"
                             alt=""
-                            width={24}
-                            height={24}
+                            width={8}
+                            height={8}
                             unoptimized
                         />
                     </button>
