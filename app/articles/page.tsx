@@ -3,106 +3,103 @@ import { createClient } from '@supabase/supabase-js'
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ArticleCard from "../../components/ArticleCard";
-import { getAllArticles } from "../../server/database-functions";
+import { getArticles, getFeaturedArticle } from "../../server/database-functions";
 
 export default async function ArticlesPage() {
-    const { articles, error } = await getAllArticles();
-
-    const featuredArticle = {
-        image: "/assets/07d3cdfdaffa9938f3cb511e5fb804857fc13ac8.png",
-        title: "From Notes to Big Catches: How Logging Sessions Improves Your Fishing",
-        description: "Track your catches, share your stories, and connect with anglers like you — all in one place.",
-        date: "25 jun 2025",
-        readTime: "10 min read"
-    };
+    const { articles, errorArticles } = await getArticles(8);
+    const { featuredArticle, errorFeaturedArticles } = await getFeaturedArticle(1);
 
     return (
         <main className="bg-white">
             <Header />
+            {featuredArticle.length > 0 ? (
+                <>
+                    {/* Featured Article Hero */}
+                    <section className="flex flex-col items-center pb-[219px] pt-0">
+                        {/* Background accent strip */}
+                        <div className="bg-[#f5dfbe] h-[299px] w-full mb-[-219px]" />
+                        {/* Featured card */}
+                        <div className="relative w-[1160px] mb-[-219px] z-10">
+                            <div className="relative h-[490px] rounded-[16px] overflow-hidden">
+                                {/* Background image */}
+                                <Image
+                                    src={featuredArticle[0].image_url}
+                                    alt={featuredArticle[0].title}
+                                    fill
+                                    className="object-cover"
+                                    unoptimized
+                                />
+                                {/* Dark overlay */}
+                                <div className="absolute inset-0 bg-[rgba(16,74,84,0.6)]" />
 
-            {/* Featured Article Hero */}
-            <section className="flex flex-col items-center pb-[219px] pt-0">
-                {/* Background accent strip */}
-                <div className="bg-[#f5dfbe] h-[299px] w-full mb-[-219px]" />
+                                {/* Content */}
+                                <div
+                                    className="absolute bottom-0 left-0 right-0 backdrop-blur-md p-[60px] rounded-[16px]"
+                                    style={{
+                                        backgroundImage: "linear-gradient(179.864deg, rgba(0, 0, 0, 0) 0.33606%, rgba(0, 0, 0, 0.4) 99.663%)"
+                                    }}
+                                >
+                                    <div className="flex flex-col gap-[32px]">
+                                        {/* Badges */}
+                                        <div className="flex gap-[8px]">
+                                            <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
+                                                <Image
+                                                    src="/assets/watch.png"
+                                                    alt="Watch"
+                                                    width={16}
+                                                    height={16}
+                                                    unoptimized
+                                                />
+                                                <span className="font-dmSans text-[12px] leading-[1.3] text-white">
+                                                    {featuredArticle[0].date}
+                                                </span>
+                                            </div>
+                                            <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
+                                                <Image
+                                                    src="/assets/watch.png"
+                                                    alt="Time"
+                                                    width={16}
+                                                    height={16}
+                                                    unoptimized
+                                                />
+                                                <span className="font-dmSans text-[12px] leading-[1.3] text-white">
+                                                    {featuredArticle[0].read_time}
+                                                </span>
+                                            </div>
+                                        </div>
 
-                {/* Featured card */}
-                <div className="relative w-[1160px] mb-[-219px] z-10">
-                    <div className="relative h-[490px] rounded-[16px] overflow-hidden">
-                        {/* Background image */}
-                        <Image
-                            src={featuredArticle.image}
-                            alt={featuredArticle.title}
-                            fill
-                            className="object-cover"
-                            unoptimized
-                        />
-                        {/* Dark overlay */}
-                        <div className="absolute inset-0 bg-[rgba(16,74,84,0.6)]" />
+                                        {/* Title & Description */}
+                                        <div className="flex flex-col gap-[16px]">
+                                            <h1 className="font-dmSans font-medium text-[44px] leading-[1.1] tracking-[-0.88px] text-white w-[860px]">
+                                                {featuredArticle[0].title}
+                                            </h1>
+                                            <p className="font-dmSans text-[22px] leading-[1.3] text-[#e9ebea] w-[683px]">
+                                                {featuredArticle[0].description}
+                                            </p>
+                                        </div>
 
-                        {/* Content */}
-                        <div
-                            className="absolute bottom-0 left-0 right-0 backdrop-blur-md p-[60px] rounded-[16px]"
-                            style={{
-                                backgroundImage: "linear-gradient(179.864deg, rgba(0, 0, 0, 0) 0.33606%, rgba(0, 0, 0, 0.4) 99.663%)"
-                            }}
-                        >
-                            <div className="flex flex-col gap-[32px]">
-                                {/* Badges */}
-                                <div className="flex gap-[8px]">
-                                    <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
-                                        <Image
-                                            src="/assets/watch.png"
-                                            alt="Watch"
-                                            width={16}
-                                            height={16}
-                                            unoptimized
-                                        />
-                                        <span className="font-dmSans text-[12px] leading-[1.3] text-white">
-                                            {featuredArticle.date}
-                                        </span>
-                                    </div>
-                                    <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
-                                        <Image
-                                            src="/assets/watch.png"
-                                            alt="Time"
-                                            width={16}
-                                            height={16}
-                                            unoptimized
-                                        />
-                                        <span className="font-dmSans text-[12px] leading-[1.3] text-white">
-                                            {featuredArticle.readTime}
-                                        </span>
+                                        {/* Read Article Button */}
+                                        <button className="bg-[rgba(245,223,190,0.1)] border border-[#dcc49f] rounded-[16px] px-[12px] py-[6px] flex items-center gap-[10px] w-fit hover:bg-[rgba(245,223,190,0.2)] transition-colors">
+                                            <span className="font-dmSans font-medium text-[18px] text-[#dbbb88]">
+                                                Read Article
+                                            </span>
+                                            <Image
+                                                src="/assets/arrow.png"
+                                                alt=""
+                                                width={16}
+                                                height={16}
+                                                unoptimized
+                                            />
+                                        </button>
                                     </div>
                                 </div>
-
-                                {/* Title & Description */}
-                                <div className="flex flex-col gap-[16px]">
-                                    <h1 className="font-dmSans font-medium text-[44px] leading-[1.1] tracking-[-0.88px] text-white w-[860px]">
-                                        {featuredArticle.title}
-                                    </h1>
-                                    <p className="font-dmSans text-[22px] leading-[1.3] text-[#e9ebea] w-[683px]">
-                                        {featuredArticle.description}
-                                    </p>
-                                </div>
-
-                                {/* Read Article Button */}
-                                <button className="bg-[rgba(245,223,190,0.1)] border border-[#dcc49f] rounded-[16px] px-[12px] py-[6px] flex items-center gap-[10px] w-fit hover:bg-[rgba(245,223,190,0.2)] transition-colors">
-                                    <span className="font-dmSans font-medium text-[18px] text-[#dbbb88]">
-                                        Read Article
-                                    </span>
-                                    <Image
-                                        src="/assets/arrow.png"
-                                        alt=""
-                                        width={16}
-                                        height={16}
-                                        unoptimized
-                                    />
-                                </button>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
+                    </section>
+                </>
+            ) : (
+                <></>
+            )}
 
             {/* Articles Grid */}
             <section className="max-w-[1280px] mx-auto px-[60px] py-[120px] pt-[20px]">
@@ -112,81 +109,61 @@ export default async function ArticlesPage() {
 
                 {/* Cards Container */}
                 <div className="flex flex-col gap-[32px] mb-[40px]">
-                    {/* Row 1: 2 cards (wider left) */}
-                    <div className="flex gap-[32px] h-[534px]">
-                        <div className="flex-1">
-                            <ArticleCard
-                                image={articles[0].image_url}
-                                title={articles[0].title}
-                                readTime={articles[0].read_time}
-                                href={`/articles/${articles[0].slug}`}
-                            />
-                        </div>
-                        <div className="w-[365.33px]">
-                            <ArticleCard
-                                image={articles[1].image_url}
-                                title={articles[1].title}
-                                readTime={articles[1].read_time}
-                                href={`/articles/${articles[1].slug}`}
-                            />
-                        </div>
-                    </div>
+                    {articles.length > 0 ? (
+                        <>
+                            {/* Row 1: 2 cards (wider left) */}
+                            <div className="flex gap-[32px] h-[534px]">
+                                <div className="flex-1">
+                                    <ArticleCard
+                                        image={articles[0].image_url}
+                                        title={articles[0].title}
+                                        readTime={articles[0].read_time}
+                                        href={`/articles/${articles[0].slug}`}
+                                    />
+                                </div>
+                                <div className="w-[365.33px]">
+                                    <ArticleCard
+                                        image={articles[1].image_url}
+                                        title={articles[1].title}
+                                        readTime={articles[1].read_time}
+                                        href={`/articles/${articles[1].slug}`}
+                                    />
+                                </div>
+                            </div>
 
-                    {/* Row 2: 3 equal cards */}
-                    <div className="flex gap-[32px] h-[534px]">
-                        <div className="flex-1">
-                            <ArticleCard
-                                image={articles[2].image_url}
-                                title={articles[2].title}
-                                readTime={articles[2].read_time}
-                                href={`/articles/${articles[2].slug}`}
-                            />
-                        </div>
-                        <div className="flex-1">
-                            <ArticleCard
-                                image={articles[3].image_url}
-                                title={articles[3].title}
-                                readTime={articles[3].read_time}
-                                href={`/articles/${articles[3].slug}`}
-                            />
-                        </div>
-                        <div className="flex-1">
-                            <ArticleCard
-                                image={articles[4].image_url}
-                                title={articles[4].title}
-                                readTime={articles[4].read_time}
-                                href={`/articles/${articles[4].slug}`}
-                            />
-                        </div>
-                    </div>
+                            {/* Row 2: 3 equal cards */}
+                            <div className="flex gap-[32px] h-[534px]">
+                                {articles?.slice(1, 4).map((article) => (
+                                    <div className="flex-1" key={article.id}>
+                                        <ArticleCard
+                                            image={article.image_url}
+                                            title={article.title}
+                                            readTime={article.read_time}
+                                            href={`/articles/${article.slug}`}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
 
-                    {/* Row 3: 3 equal cards */}
-                    <div className="flex gap-[32px] h-[534px]">
-                        <div className="flex-1">
-                            <ArticleCard
-                                image={articles[5].image_url}
-                                title={articles[5].title}
-                                readTime={articles[5].read_time}
-                                href={`/articles/${articles[5].slug}`}
-                            />
+                            {/* Row 3: 3 equal cards */}
+                            <div className="flex gap-[32px] h-[534px]">
+                                {articles?.slice(4, 7).map((article) => (
+                                    <div className="flex-1" key={article.id}>
+                                        <ArticleCard
+                                            image={article.image_url}
+                                            title={article.title}
+                                            readTime={article.read_time}
+                                            href={`/articles/${article.slug}`}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        </>
+                    ) : (
+                        <div className="flex justify-center text-black text-xl h-screen">
+                            <p>No articles for now.</p>
                         </div>
-                        <div className="flex-1">
-                            <ArticleCard
-                                image={articles[6].image_url}
-                                title={articles[6].title}
-                                readTime={articles[6].read_time}
-                                href={`/articles/${articles[6].slug}`}
-                            />
-                        </div>
-                        <div className="flex-1">
-                            <ArticleCard
-                                image={articles[7].image_url}
-                                title={articles[7].title}
-                                readTime={articles[7].read_time}
-                                href={`/articles/${articles[7].slug}`}
-                            />
-                        </div>
-                    </div>
+                    )}
                 </div>
 
                 {/* Pagination */}
