@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { createClient } from '@supabase/supabase-js'
+import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ArticleCard from "../../components/ArticleCard";
@@ -7,12 +7,12 @@ import { getArticles, getFeaturedArticle } from "../../server/database-functions
 
 export default async function ArticlesPage() {
     const { articles, errorArticles } = await getArticles(8);
-    const { featuredArticle, errorFeaturedArticles } = await getFeaturedArticle(1);
+    const { featuredArticle, errorFeaturedArticle } = await getFeaturedArticle();
 
     return (
         <main className="bg-white">
             <Header />
-            {featuredArticle.length > 0 ? (
+            {featuredArticle && (
                 <>
                     {/* Featured Article Hero */}
                     <section className="flex flex-col items-center pb-[219px] pt-0">
@@ -23,8 +23,8 @@ export default async function ArticlesPage() {
                             <div className="relative h-[490px] rounded-[16px] overflow-hidden">
                                 {/* Background image */}
                                 <Image
-                                    src={featuredArticle[0].image_url}
-                                    alt={featuredArticle[0].title}
+                                    src={featuredArticle.image_url}
+                                    alt={featuredArticle.title}
                                     fill
                                     className="object-cover"
                                     unoptimized
@@ -43,16 +43,9 @@ export default async function ArticlesPage() {
                                         {/* Badges */}
                                         <div className="flex gap-[8px]">
                                             <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
-                                                <Image
-                                                    src="/assets/watch.png"
-                                                    alt="Watch"
-                                                    width={16}
-                                                    height={16}
-                                                    unoptimized
-                                                />
                                                 <span className="font-dmSans text-[12px] leading-[1.3] text-white">
-                                                    {featuredArticle[0].date}
-                                                </span>
+                                                    {featuredArticle.date}
+                                                </span> 
                                             </div>
                                             <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
                                                 <Image
@@ -63,7 +56,7 @@ export default async function ArticlesPage() {
                                                     unoptimized
                                                 />
                                                 <span className="font-dmSans text-[12px] leading-[1.3] text-white">
-                                                    {featuredArticle[0].read_time}
+                                                    {featuredArticle.read_time} min to read
                                                 </span>
                                             </div>
                                         </div>
@@ -71,34 +64,34 @@ export default async function ArticlesPage() {
                                         {/* Title & Description */}
                                         <div className="flex flex-col gap-[16px]">
                                             <h1 className="font-dmSans font-medium text-[44px] leading-[1.1] tracking-[-0.88px] text-white w-[860px]">
-                                                {featuredArticle[0].title}
+                                                {featuredArticle.title}
                                             </h1>
                                             <p className="font-dmSans text-[22px] leading-[1.3] text-[#e9ebea] w-[683px]">
-                                                {featuredArticle[0].description}
+                                                {featuredArticle.description}
                                             </p>
                                         </div>
 
                                         {/* Read Article Button */}
-                                        <button className="bg-[rgba(245,223,190,0.1)] border border-[#dcc49f] rounded-[16px] px-[12px] py-[6px] flex items-center gap-[10px] w-fit hover:bg-[rgba(245,223,190,0.2)] transition-colors">
-                                            <span className="font-dmSans font-medium text-[18px] text-[#dbbb88]">
-                                                Read Article
-                                            </span>
-                                            <Image
-                                                src="/assets/arrow.png"
-                                                alt=""
-                                                width={16}
-                                                height={16}
-                                                unoptimized
-                                            />
-                                        </button>
+                                        <Link href={featuredArticle.slug}>
+                                            <button className="bg-[rgba(245,223,190,0.1)] border border-[#dcc49f] rounded-[16px] px-[12px] py-[6px] flex items-center gap-[10px] w-fit hover:bg-[rgba(245,223,190,0.2)] transition-colors">
+                                                <span className="font-dmSans font-medium text-[18px] text-[#dbbb88]">
+                                                        Read Article
+                                                </span>
+                                                <Image
+                                                    src="/assets/arrow.png"
+                                                    alt=""
+                                                    width={16}
+                                                    height={16}
+                                                    unoptimized
+                                                />
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </>
-            ) : (
-                <></>
             )}
 
             {/* Articles Grid */}
@@ -210,7 +203,6 @@ export default async function ArticlesPage() {
                     </button>
                 </div>
             </section>
-
             <Footer />
         </main>
     );
