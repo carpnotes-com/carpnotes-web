@@ -17,9 +17,6 @@ export default async function ArticlesPage({ searchParams }) {
     const { countArticles, errorCountArticles } = await getCountArticles();
     const { featuredArticle, errorFeaturedArticle } = await getFeaturedArticle();
 
-    console.log(countArticles);
-    console.log(currentPage);
-
     return (
         <main className="bg-white">
             <Header />
