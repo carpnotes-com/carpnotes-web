@@ -11,14 +11,25 @@ if (dbURL && dbPublicApiKey) {
     throw new Error("DATABASE_URL or PUBLIC_API_KEY is missing in .env file.")
 }
 
-export async function getArticles(quantity: number) {
+export async function getArticles(quantity: number, from: number, to: number) {
     const { data: articles, error: errorArticles } = await supabase
     .from('article')
     .select()
-    .limit(quantity);
+    .limit(quantity)
+    .range(from, to);
 
     return {
         articles, errorArticles
+    };
+}
+
+export async function getCountArticles() {
+    const { count: countArticles, error: errorCountArticles } = await supabase
+    .from('article')
+    .select('*', {count: 'exact', head: true});
+
+    return {
+        countArticles, errorCountArticles
     };
 }
 
