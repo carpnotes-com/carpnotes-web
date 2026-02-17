@@ -30,7 +30,7 @@ export default function ArticleCard({
             width={16}
             className="mr-1"
           />
-          {readTime}
+          {readTime} min to read
         </div>
         <Link href={href}>
           <div className="text-3xl text-white font-light">
