@@ -3,7 +3,7 @@ import Title from "./Title";
 import StoreButtons from "./StoreButtons";
 import GooglePlay from "../public/assets/google_play.svg";
 import Apple from "../public/assets/apple.svg";
-import Fish from "../public/assets/Footer Fish.png";
+import Fish from "../public/assets/Fish.png";
 
 export default function CallToAction() {
   return (

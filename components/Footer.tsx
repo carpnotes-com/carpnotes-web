@@ -1,8 +1,4 @@
-import Image from "next/image";
-import TikTokLogo from "../public/assets/tiktok-logo.png";
-import InstagramLogo from "../public/assets/instagram-logo.png";
-import FacebookLogo from "../public/assets/facebook-logo.png";
-import Link from "next/link";
+import SocialMediaLinks from "./SocialMediaLinks";
 
 export default function Footer() {
   return (
@@ -13,28 +9,7 @@ export default function Footer() {
           © 2025 CarpNotes
         </div>
         <div className="flex">
-          <Link href='https://www.tiktok.com/'>
-            <Image
-              src={TikTokLogo}
-              alt="TikTok"
-              width={28}
-            />
-          </Link>
-          <Link href='https://www.instagram.com/'>
-            <Image
-              src={InstagramLogo}
-              alt="Instagram"
-              width={28}
-              className="mx-1"
-            />
-          </Link>
-          <Link href='https://www.facebook.com/'>
-            <Image
-              src={FacebookLogo}
-              alt="Facebook"
-              width={28}
-            />
-          </Link>
+          <SocialMediaLinks/>
         </div>
       </div>
     </section>
