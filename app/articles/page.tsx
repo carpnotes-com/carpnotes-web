@@ -170,8 +170,7 @@ export default async function ArticlesPage({ searchParams }) {
                 {/* Pagination */}
                 <div className="flex gap-[21px] items-center justify-center">
                     {/* Previous Button */}
-                    {currentPage != 1 &&
-                        (
+                    {currentPage != 1 && (
                         <button className="flex gap-[6px] px-[16px] py-[6px]">
                             <Link href={`articles?page=${currentPage - 1}`} className="flex items-center">
                                 <Image
@@ -190,15 +189,15 @@ export default async function ArticlesPage({ searchParams }) {
 
                     {/* Page Numbers */}
                     <div className="flex gap-[11px] items-center">
+                        <div className="px-[16px] py-[6px]">
+                            <span className="font-dmSans text-[16px] leading-[1.2] text-[#1f1f1f]">{currentPage - 1}</span>
+                        </div>
                         <div className="bg-white border border-[#5e6d7a] rounded-[4px] px-[16px] py-[6px]">
                             <span className="font-dmSans text-[16px] leading-[1.2] text-[#1f1f1f]">{currentPage}</span>
                         </div>
-                        {/* <div className="px-[16px] py-[6px]">
-                            <span className="font-dmSans text-[16px] leading-[1.2] text-[#1f1f1f]">2</span>
-                        </div>
                         <div className="px-[16px] py-[6px]">
-                            <span className="font-dmSans text-[16px] leading-[1.2] text-[#1f1f1f]">3</span>
-                        </div> */}
+                            <span className="font-dmSans text-[16px] leading-[1.2] text-[#1f1f1f]">{currentPage + 1}</span>
+                        </div>
                     </div>
 
                     {/* Next Button */}

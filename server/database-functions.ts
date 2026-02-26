@@ -1,3 +1,5 @@
+'use server';
+
 import { createClient } from "@supabase/supabase-js";
 
 require('dotenv').config();
@@ -50,4 +52,12 @@ export async function getFeaturedArticle () {
     return {
         featuredArticle, errorFeaturedArticle
     };
+}
+
+export async function addMessageFromForm(formData: any) {
+    const { error: addMessageFromFormError } = await supabase
+    .from('message')
+    .insert({ email: formData.email, message_text: formData.message});
+
+    return addMessageFromFormError;
 }
