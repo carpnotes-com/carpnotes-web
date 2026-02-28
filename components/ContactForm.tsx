@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { addMessageFromForm } from "@/server/database-functions";
+import { addMessage } from "@/server/database-functions";
 import Image from "next/image";
 import MessageSentImage from "@/public/assets/message_sent.png";
 
@@ -13,16 +13,16 @@ export default function ContactForm() {
 
     const [isMessageSent, setIsMessageSent] = useState(false);
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: any) => {
         e.preventDefault();
 
         if (formData.email && formData.message) {
-            await addMessageFromForm(formData);
+            await addMessage(formData.email, formData.message);
             setIsMessageSent(true);
         };
     };
 
-    const handleChange = (e) => {
+    const handleChange = (e: any) => {
         const {name, value} = e.target;
 
         setFormData((previous) => ({
