@@ -5,7 +5,9 @@ import Footer from "../../components/Footer";
 import ArticleCard from "../../components/ArticleCard";
 import { getArticles, getCountArticles, getFeaturedArticle } from "../../server/database-functions";
 
-export default async function ArticlesPage({ searchParams }) {
+type searchParamsType = Promise<{ [key: string]: string | string[] | undefined }>;
+
+export default async function ArticlesPage({ searchParams } : { searchParams: searchParamsType}) {
     const params = await searchParams;
     const currentPage = Number(params.page) || 1;
     const pageSize = 8;
@@ -110,7 +112,7 @@ export default async function ArticlesPage({ searchParams }) {
 
                 {/* Cards Container */}
                 <div className="flex flex-col gap-[32px] mb-[40px]">
-                    {articles.length > 0 ? (
+                    {articles ? (
                         <>
                             {/* Row 1: 2 cards (wider left) */}
                             <div className="flex gap-[32px] h-[534px]">

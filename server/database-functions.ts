@@ -25,7 +25,9 @@ export async function getArticles(quantity: number, from?: number, to?: number) 
         .from('article')
         .select()
         .limit(quantity);
-    }
+    };
+
+    articles == null ? articles = [] : articles;
 
     return {
         articles, errorArticles
@@ -33,9 +35,11 @@ export async function getArticles(quantity: number, from?: number, to?: number) 
 }
 
 export async function getCountArticles() {
-    const { count: countArticles, error: errorCountArticles } = await supabase
+    var { count: countArticles, error: errorCountArticles } = await supabase
     .from('article')
     .select('*', {count: 'exact', head: true});
+
+    countArticles == null ? countArticles = 0 : countArticles;
 
     return {
         countArticles, errorCountArticles
@@ -54,10 +58,10 @@ export async function getFeaturedArticle () {
     };
 }
 
-export async function addMessageFromForm(formData: any) {
-    const { error: addMessageFromFormError } = await supabase
+export async function addMessage(email: string, message: string) {
+    const { error: addMessageError } = await supabase
     .from('message')
-    .insert({ email: formData.email, message_text: formData.message});
+    .insert({ email: email, message_text: message});
 
-    return addMessageFromFormError;
+    return addMessageError;
 }
