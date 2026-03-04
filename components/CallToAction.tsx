@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Title from "./Title";
 import StoreButtons from "./StoreButtons";
-import GooglePlay from "../public/assets/google_play.svg";
-import Apple from "../public/assets/apple.svg";
-import Fish from "../public/assets/Fish.png";
+import Fish from "../public/assets/contact-form-fish.svg";
 
 export default function CallToAction() {
   return (

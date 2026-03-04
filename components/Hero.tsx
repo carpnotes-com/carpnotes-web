@@ -25,14 +25,14 @@ export default function Hero() {
 
                     <div className='flex ml-auto'>
                         <Image
-                            src={PhoneRight}
+                            src={PhoneLeft}
                             alt='PhoneRight'
-                            className='w-60 rounded-3xl -rotate-5'
+                            className='w-60 rounded-3xl -rotate-5 mt-10'
                         />
                         <Image
                             src={PhoneRight}
                             alt='PhoneRight'
-                            className='w-60 rounded-3xl rotate-5'
+                            className='w-60 rounded-3xl rotate-5 mb-10 shadow-xl'
                         />
                     </div>
                 </div>

@@ -1,8 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
-import TikTokLogo from "../public/assets/tiktok-logo.png";
-import InstagramLogo from "../public/assets/instagram-logo.png";
-import FacebookLogo from "../public/assets/facebook-logo.png";
+import TikTokLogo from "../public/assets/tiktok-logo.svg";
+import InstagramLogo from "../public/assets/instagram-logo.svg";
+import FacebookLogo from "../public/assets/facebook-logo.svg";
 
 export default function SocialMediaLinks() {
     return (

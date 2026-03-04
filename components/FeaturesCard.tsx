@@ -17,13 +17,13 @@ export default function FeaturesCard({
     <div className="w-md">
       <Image src={image} alt="Image" className="my-2" />
 
-      <div className="text-xl font-semibold">{title}</div>
+      <div className="text-xl text-black font-semibold ">{title}</div>
 
-      {subdescription}
+      <span className="text-black">{subdescription}</span>
 
-      <hr className="h-px bg-gray-400 border-0 my-2" />
+      <hr className="h-px bg-gray-400 border-0 my-2 " />
 
-      <div>{description}</div>
+      <div className="text-black">{description}</div>
     </div>
   );
 }

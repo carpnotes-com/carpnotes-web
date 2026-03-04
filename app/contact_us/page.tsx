@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Fish from "@/public/assets/Fish.png";
+import Fish from "@/public/assets/contact-form-fish.svg";
 import Image from "next/image";
 import SocialMediaLinks from "@/components/SocialMediaLinks";
 import ContactForm from "@/components/ContactForm";
