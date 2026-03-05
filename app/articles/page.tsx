@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import ArticleCard from "../../components/ArticleCard";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ArticleCard from "@/components/ArticleCard";
+import ArrowArticle from "@/public/assets/arrow-articles.svg";
 import ArrowLeft from "@/public/assets/arrow-left.svg";
 import ArrowRight from "@/public/assets/arrow-right.svg";
-import { getArticles, getCountArticles, getFeaturedArticle } from "../../server/database-functions";
+import Watch from "@/public/assets/watch.svg";
+import { getArticles, getCountArticles, getFeaturedArticle } from "@/server/database-functions";
 
 type searchParamsType = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -65,14 +67,14 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                                             </div>
                                             <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
                                                 <Image
-                                                    src="/assets/watch.png"
-                                                    alt="Time"
+                                                    src={Watch}
+                                                    alt="Watch"
                                                     width={16}
                                                     height={16}
                                                     unoptimized
                                                 />
                                                 <span className="font-dmSans text-[12px] leading-[1.3] text-white">
-                                                    {featuredArticle.read_time} min to read
+                                                    {featuredArticle.read_time} min read
                                                 </span>
                                             </div>
                                         </div>
@@ -94,8 +96,8 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                                                     Read Article
                                                 </span>
                                                 <Image
-                                                    src="/assets/arrow.png"
-                                                    alt=""
+                                                    src={ArrowArticle}
+                                                    alt="Go To The Article"
                                                     width={16}
                                                     height={16}
                                                     unoptimized

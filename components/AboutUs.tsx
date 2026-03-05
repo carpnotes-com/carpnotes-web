@@ -19,7 +19,7 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center text-black">
           <Image
             src={Founders}
             alt="Founders"
