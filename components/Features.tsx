@@ -10,8 +10,8 @@ export default function Features() {
     <section>
       <div className="mx-10 my-25">
         <div className="w-1/3">
-          <Title text="Your Next-Level Carp Fishing Journey" />
-          <div className="text-xl my-6">
+          <Title text="Your Next-Level Carp Fishing Journey" style="text-black"/>
+          <div className="text-xl my-6 text-black">
             A place where passion meets precision, and community meets the great
             outdoors.
           </div>

@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { addMessage } from "@/server/database-functions";
 import Image from "next/image";
-import MessageSentImage from "@/public/assets/message_sent.png";
+import MessageSentImage from "@/public/assets/message-sent.svg";
 
 export default function ContactForm() {
     const [formData, setFormData] = useState({
