@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import ReadTime from "@/components/ReadTime";
+import DateOfPost from "@/components/DateOfPost";
 import ArticleCard from "@/components/ArticleCard";
 import ArrowArticle from "@/public/assets/arrow-articles.svg";
 import ArrowLeft from "@/public/assets/arrow-left.svg";
 import ArrowRight from "@/public/assets/arrow-right.svg";
-import Watch from "@/public/assets/watch.svg";
 import { getArticles, getCountArticles, getFeaturedArticle } from "@/server/database-functions";
+import { formatToDate } from "@/server/backend-functions";
 
 type searchParamsType = Promise<{ [key: string]: string | string[] | undefined }>;
 
@@ -19,9 +19,11 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
     const from = (currentPageNumber - 1) * pageSize;
     const to = from + pageSize - 1
 
-    const { articles, errorArticles } = await getArticles(pageSize, from, to);
-    const { countArticles, errorCountArticles } = await getCountArticles();
-    const { featuredArticle, errorFeaturedArticle } = await getFeaturedArticle();
+    const { articles } = await getArticles(pageSize, from, to);
+    const { countArticles } = await getCountArticles();
+    const { featuredArticle } = await getFeaturedArticle();
+    
+    const featuredArticleFormattedDate = formatToDate(featuredArticle.date);
 
     const endPageNumber = Math.ceil(countArticles / pageSize);
 
@@ -29,7 +31,6 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
 
     return (
         <main>
-            <Header />
             {featuredArticle && (
                 <>
                     {/* Featured Article Hero */}
@@ -52,59 +53,48 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
 
                                 {/* Content */}
                                 <div
-                                    className="absolute bottom-0 left-0 right-0 backdrop-blur-md p-[60px] rounded-[16px]"
+                                    className="absolute bottom-0 left-0 right-0 rounded-[16px] backdrop-blur mask-[linear-gradient(to_top,black_30%,transparent_100%)] h-full"
                                     style={{
-                                        backgroundImage: "linear-gradient(179.864deg, rgba(0, 0, 0, 0) 0.33606%, rgba(0, 0, 0, 0.4) 99.663%)"
+                                        backgroundImage: "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%)"
                                     }}
                                 >
-                                    <div className="flex flex-col gap-[32px]">
-                                        {/* Badges */}
-                                        <div className="flex gap-[8px]">
-                                            <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
-                                                <span className="font-dmSans text-[12px] leading-[1.3] text-white">
-                                                    {featuredArticle.date}
-                                                </span>
-                                            </div>
-                                            <div className="bg-[rgba(255,255,255,0.1)] rounded-[12px] px-[6px] py-[4px] flex items-center gap-[4px]">
-                                                <Image
-                                                    src={Watch}
-                                                    alt="Watch"
-                                                    width={16}
-                                                    height={16}
-                                                    unoptimized
-                                                />
-                                                <span className="font-dmSans text-[12px] leading-[1.3] text-white">
-                                                    {featuredArticle.read_time} min read
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                        {/* Title & Description */}
-                                        <div className="flex flex-col gap-[16px]">
-                                            <h1 className="font-dmSans font-medium text-[44px] leading-[1.1] tracking-[-0.88px] text-white w-[860px]">
-                                                {featuredArticle.title}
-                                            </h1>
-                                            <p className="font-dmSans text-[22px] leading-[1.3] text-[#e9ebea] w-[683px]">
-                                                {featuredArticle.description}
-                                            </p>
-                                        </div>
-
-                                        {/* Read Article Button */}
-                                        <Link href={featuredArticle.slug}>
-                                            <button className="bg-[rgba(245,223,190,0.1)] border border-[#dcc49f] rounded-[16px] px-[12px] py-[6px] flex items-center gap-[10px] w-fit hover:bg-[rgba(245,223,190,0.2)] transition-colors">
-                                                <span className="font-dmSans font-medium text-[18px] text-[#dbbb88]">
-                                                    Read Article
-                                                </span>
-                                                <Image
-                                                    src={ArrowArticle}
-                                                    alt="Go To The Article"
-                                                    width={16}
-                                                    height={16}
-                                                    unoptimized
-                                                />
-                                            </button>
-                                        </Link>
+                                </div>
+                                <div className="absolute flex flex-col gap-[32px] bottom-0 p-12">
+                                    {/* Badges */}
+                                    <div className="flex gap-[8px]">
+                                        <DateOfPost
+                                        date={featuredArticleFormattedDate}
+                                        />
+                                        <ReadTime
+                                        readTime={featuredArticle.read_time}
+                                        />
                                     </div>
+
+                                    {/* Title & Description */}
+                                    <div className="flex flex-col gap-[16px]">
+                                        <h1 className="font-dmSans font-medium text-[44px] leading-[1.1] tracking-[-0.88px] text-white w-[860px]">
+                                            {featuredArticle.title}
+                                        </h1>
+                                        <p className="font-dmSans text-[22px] leading-[1.3] text-[#e9ebea] w-[683px]">
+                                            {featuredArticle.description}
+                                        </p>
+                                    </div>
+
+                                    {/* Read Article Button */}
+                                    <Link href={`articles/${featuredArticle.slug}`} className="flex mr-auto">
+                                        <button className="bg-[rgba(245,223,190,0.1)] border border-[#dcc49f] rounded-[16px] px-[12px] py-[6px] flex items-center gap-[10px] w-fit hover:bg-[rgba(245,223,190,0.2)] transition-colors">
+                                            <span className="font-dmSans font-medium text-[18px] text-[#dbbb88]">
+                                                Read Article
+                                            </span>
+                                            <Image
+                                                src={ArrowArticle}
+                                                alt="Go To The Article"
+                                                width={16}
+                                                height={16}
+                                                unoptimized
+                                            />
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -124,33 +114,19 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                         <>
                             <div className="flex justify-around gap-[32px] h-[534px]">
                                 {articles.slice(0, 2).map((article, index) => (
-                                    <div className="flex" key={article.id}>
-                                        {!isFirstArticleAppeared && index == 0 ? (
-                                            <div className="flex-1">
-                                                <ArticleCard
-                                                    image={article.image_url}
-                                                    title={article.title}
-                                                    readTime={article.read_time}
-                                                    href={`/articles/${article.slug}`}
-                                                />
-                                            </div>
-                                        ) : (
-                                            <div className="w-[365.33px]">
-                                                <ArticleCard
-                                                    image={article.image_url}
-                                                    title={article.title}
-                                                    readTime={article.read_time}
-                                                    href={`/articles/${article.slug}`}
-                                                />
-                                            </div>
-                                        )}
-                                        {isFirstArticleAppeared = true}
+                                    <div className={`${!isFirstArticleAppeared && index == 0 ? `flex-1` : `w-[365.33px]`}`} key={article.id}>
+                                        <ArticleCard
+                                            image={article.image_url}
+                                            title={article.title}
+                                            readTime={article.read_time}
+                                            href={`/articles/${article.slug}`}
+                                        />
                                     </div>
                                 ))}
                             </div>
                             <div className="flex justify-around gap-[32px] h-[534px]">
                                 {articles.slice(2, 5).map((article) => (
-                                    <div className="flex" key={article.id}>
+                                    <div className="flex-1" key={article.id}>
                                         <ArticleCard
                                             image={article.image_url}
                                             title={article.title}
@@ -162,7 +138,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                             </div>
                             <div className="flex justify-around gap-[32px] h-[534px]">
                                 {articles.slice(5, 8).map((article) => (
-                                    <div className="flex" key={article.id}>
+                                    <div className="flex-1" key={article.id}>
                                         <ArticleCard
                                             image={article.image_url}
                                             title={article.title}
@@ -228,7 +204,6 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                     </button>
                 </div>
             </section>
-            <Footer />
         </main>
     );
 }

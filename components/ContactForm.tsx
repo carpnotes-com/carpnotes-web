@@ -23,7 +23,7 @@ export default function ContactForm() {
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const {name, value} = e.target;
+        const { name, value } = e.target;
 
         setFormData((previous) => ({
             ...previous,
@@ -43,12 +43,12 @@ export default function ContactForm() {
                             <div className="flex flex-col">
                                 <small>Your email</small>
                                 <input
-                                required
-                                className="bg-neutral-100 rounded-lg text-black h-7 px-2 my-1"
-                                type="text"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
+                                    required
+                                    className="bg-neutral-100 rounded-lg text-black h-7 px-2 my-1"
+                                    type="text"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
                                 />
                             </div>
                         </div>
@@ -56,18 +56,18 @@ export default function ContactForm() {
                             <div className="flex flex-col">
                                 <small>Your message</small>
                                 <textarea
-                                required
-                                className="bg-neutral-100 rounded-lg text-black h-24 px-2 py-1 my-1"
-                                style={{ resize: 'none' }}
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}></textarea>
+                                    required
+                                    className="bg-neutral-100 rounded-lg text-black h-24 px-2 py-1 my-1"
+                                    style={{ resize: 'none' }}
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}></textarea>
                             </div>
                         </div>
                         <div className="mt-5">
                             <button
-                            className="text-black bg-amber-100 p-4 rounded-full w-full font-sans"
-                            type="submit"> 
+                                className="text-black bg-amber-100 p-4 rounded-full w-full font-sans"
+                                type="submit">
                                 <strong>Contact the team</strong>
                             </button>
                         </div>
@@ -76,10 +76,10 @@ export default function ContactForm() {
             ) : (
                 <div className="flex flex-col">
                     <Image
-                    src={MessageSentImage}
-                    alt="MessageSent"
-                    width={1}
-                    className="w-10 h-10"
+                        src={MessageSentImage}
+                        alt="MessageSent"
+                        width={1}
+                        className="w-10 h-10"
                     />
                     <h1 className="text-4xl mt-5">
                         Message sent successfully

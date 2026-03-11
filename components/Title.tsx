@@ -1,11 +1,11 @@
 interface TitleProps {
-  text: string,
-  style?: string
+    text: string,
+    style?: string
 }
 
 export default function Title({
-  text,
-  style
+    text,
+    style
 }: TitleProps) {
     return (
         <h1 className={`text-5xl font-medium ${style}`}>

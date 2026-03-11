@@ -1,16 +1,15 @@
 import Image from "next/image";
-import Link from "next/link";
-import StoreButtons from "./StoreButtons";
-import HeroBackground from "../public/assets/Hero.jpg"
-import PhoneLeft from "../public/assets/phone-left.png";
-import PhoneRight from "../public/assets/phone-right.png";
+import StoreButtons from "@/components/StoreButtons";
+import HeroBackground from "@/public/assets/hero.jpg"
+import PhoneLeft from "@/public/assets/phone-left.png";
+import PhoneRight from "@/public/assets/phone-right.png";
 
 export default function Hero() {
     return (
         <section>
             <div
-            className={`flex bg-cover h-screen`}
-            style={{ backgroundImage: `url(${HeroBackground.src})` }}
+                className="flex bg-cover min-h-screen"
+                style={{ backgroundImage: `url(${HeroBackground.src})` }}
             >
                 <div className="flex items-center mx-10 w-full">
                     <div className='flex flex-col w-xl'>
@@ -20,7 +19,7 @@ export default function Hero() {
                         <div className='text-white text-lg my-6'>
                             Track your catches, share your stories, and connect with anglers like you — all in one place.
                         </div>
-                        <StoreButtons/>
+                        <StoreButtons />
                     </div>
 
                     <div className='flex ml-auto'>
