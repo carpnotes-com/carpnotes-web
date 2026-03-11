@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ReadTime from "@/components/ReadTime";
 import DateOfPost from "@/components/DateOfPost";
+import Button from "@/components/Button";
 import ArticleCard from "@/components/ArticleCard";
-import ArrowArticle from "@/public/assets/arrow-articles.svg";
 import ArrowLeft from "@/public/assets/arrow-left.svg";
 import ArrowRight from "@/public/assets/arrow-right.svg";
 import { getArticles, getCountArticles, getFeaturedArticle } from "@/server/database-functions";
@@ -22,7 +22,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
     const { articles } = await getArticles(pageSize, from, to);
     const { countArticles } = await getCountArticles();
     const { featuredArticle } = await getFeaturedArticle();
-    
+
     const featuredArticleFormattedDate = formatToDate(featuredArticle.date);
 
     const endPageNumber = Math.ceil(countArticles / pageSize);
@@ -63,10 +63,10 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                                     {/* Badges */}
                                     <div className="flex gap-[8px]">
                                         <DateOfPost
-                                        date={featuredArticleFormattedDate}
+                                            date={featuredArticleFormattedDate}
                                         />
                                         <ReadTime
-                                        readTime={featuredArticle.read_time}
+                                            readTime={featuredArticle.read_time}
                                         />
                                     </div>
 
@@ -81,20 +81,11 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                                     </div>
 
                                     {/* Read Article Button */}
-                                    <Link href={`articles/${featuredArticle.slug}`} className="flex mr-auto">
-                                        <button className="bg-[rgba(245,223,190,0.1)] border border-[#dcc49f] rounded-[16px] px-[12px] py-[6px] flex items-center gap-[10px] w-fit hover:bg-[rgba(245,223,190,0.2)] transition-colors">
-                                            <span className="font-dmSans font-medium text-[18px] text-[#dbbb88]">
-                                                Read Article
-                                            </span>
-                                            <Image
-                                                src={ArrowArticle}
-                                                alt="Go To The Article"
-                                                width={16}
-                                                height={16}
-                                                unoptimized
-                                            />
-                                        </button>
-                                    </Link>
+                                    <Button
+                                        href={`articles/${featuredArticle.slug}`}
+                                        text="Read Article"
+                                        additionalStyles="mr-auto"
+                                    />
                                 </div>
                             </div>
                         </div>

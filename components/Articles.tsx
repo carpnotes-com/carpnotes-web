@@ -4,6 +4,7 @@ import Image from "next/image";
 import ArticleCard from "@/components/ArticleCard";
 import ArrowArticle from "@/public/assets/arrow-articles.svg";
 import { getArticles } from "@/server/database-functions";
+import Button from "./Button";
 
 export default async function Articles() {
     const { articles, errorArticles } = await getArticles(3);
@@ -18,20 +19,11 @@ export default async function Articles() {
                                 text="Tips, Stories & Insights for Every Angler"
                                 style="text-white"
                             />
-                            <Link href="articles" className="flex ml-auto">
-                                <button className="bg-[rgba(245,223,190,0.1)] border border-[#dcc49f] rounded-[16px] px-[12px] py-[6px] flex items-center gap-[10px] w-fit hover:bg-[rgba(245,223,190,0.2)] transition-colors">
-                                    <span className="font-dmSans font-medium text-[18px] text-[#dbbb88]">
-                                        Read More Articles
-                                    </span>
-                                    <Image
-                                        src={ArrowArticle}
-                                        alt="More Articles"
-                                        width={16}
-                                        height={16}
-                                        unoptimized
-                                    />
-                                </button>
-                            </Link>
+                            <Button
+                            href="articles"
+                            text="Read More Articles"
+                            additionalStyles="ml-auto"
+                            />
                         </div>
 
                         <div className="flex gap-[32px] justify-between h-screen">
