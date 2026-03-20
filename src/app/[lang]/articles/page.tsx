@@ -1,29 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
-import ReadTime from "@/components/ReadTime";
-import DateOfPost from "@/components/DateOfPost";
-import Button from "@/components/Button";
-import ArticleCard from "@/components/ArticleCard";
+import ReadTime from "@/src/components/article-card/ReadTime";
+import DateOfPost from "@/src/components/article-card/DateOfPost";
+import Button from "@/src/components/page-components/Button";
+import ArticleCard from "@/src/components/article-card/ArticleCard";
 import ArrowLeft from "@/public/assets/arrow-left.svg";
 import ArrowRight from "@/public/assets/arrow-right.svg";
-import { getArticles, getCountArticles, getFeaturedArticle } from "@/server/database-functions";
-import { formatToDate } from "@/server/backend-functions";
+import { getArticles, getCountArticles, getFeaturedArticle } from "@/src/lib/actions";
+import { formatToDate } from "@/src/lib/formatFunctions";
+import { Locale } from "@/src/lib/dictionaries";
+import { getDictionary } from "@/src/lib/dictionaries";
 
+type paramsType = Promise<{ lang: Locale }>;
 type searchParamsType = Promise<{ [key: string]: string | string[] | undefined }>;
 
-export default async function ArticlesPage({ searchParams }: { searchParams: searchParamsType }) {
-    const params = await searchParams;
-    const currentPageNumber = Number(params.page) || 1;
+export default async function ArticlesPage(
+    { params, searchParams }:
+        { params: paramsType, searchParams: searchParamsType }
+) {
+    const { lang } = await params;
+    const { page } = await searchParams;
+
+    const localeDictionary = await getDictionary(lang);
+
+    const currentPageNumber = Number(page) || 1;
     const pageSize = 8;
 
     const from = (currentPageNumber - 1) * pageSize;
     const to = from + pageSize - 1
 
-    const { articles } = await getArticles(pageSize, from, to);
+    const { articles } = await getArticles(lang, pageSize, from, to);
     const { countArticles } = await getCountArticles();
-    const { featuredArticle } = await getFeaturedArticle();
+    const { featuredArticle } = await getFeaturedArticle(lang);
 
-    const featuredArticleFormattedDate = formatToDate(featuredArticle.date);
+    const featuredArticleFormattedDate = await formatToDate(lang, featuredArticle.date);
 
     const endPageNumber = Math.ceil(countArticles / pageSize);
 
@@ -66,6 +76,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                                             date={featuredArticleFormattedDate}
                                         />
                                         <ReadTime
+                                            timeToReadText={localeDictionary.card.timeToReadText}
                                             readTime={featuredArticle.read_time}
                                         />
                                     </div>
@@ -83,7 +94,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                                     {/* Read Article Button */}
                                     <Button
                                         href={`articles/${featuredArticle.slug}`}
-                                        text="Read Article"
+                                        text={localeDictionary.articles.featuredArticle.readArticleButton}
                                         additionalStyles="mr-auto"
                                     />
                                 </div>
@@ -96,7 +107,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
             {/* Articles Grid */}
             <section className="max-w-[1280px] mx-auto px-[60px] py-[120px] pt-[20px]">
                 <h2 className="font-dmSans font-medium text-[44px] leading-[1.1] tracking-[-0.88px] text-[#1f1f1f] mb-[40px] w-[805px]">
-                    Tips, Stories & Insights for Every Angler
+                    {localeDictionary.articles.cardsConatiner.primaryHeader}
                 </h2>
 
                 {/* Cards Container */}
@@ -104,37 +115,40 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                     {articles ? (
                         <>
                             <div className="flex justify-around gap-[32px] h-[534px]">
-                                {articles.slice(0, 2).map((article, index) => (
+                                {articles.slice(0, 2).map((article: any, index: number) => (
                                     <div className={`${!isFirstArticleAppeared && index == 0 ? `flex-1` : `w-[365.33px]`}`} key={article.id}>
                                         <ArticleCard
                                             image={article.image_url}
                                             title={article.title}
                                             readTime={article.read_time}
-                                            href={`/articles/${article.slug}`}
+                                            cardDict={localeDictionary.card}
+                                            href={`/${lang}/articles/${article.slug}`}
                                         />
                                     </div>
                                 ))}
                             </div>
                             <div className="flex justify-around gap-[32px] h-[534px]">
-                                {articles.slice(2, 5).map((article) => (
+                                {articles.slice(2, 5).map((article: any) => (
                                     <div className="flex-1" key={article.id}>
                                         <ArticleCard
                                             image={article.image_url}
                                             title={article.title}
                                             readTime={article.read_time}
-                                            href={`/articles/${article.slug}`}
+                                            cardDict={localeDictionary.card}
+                                            href={`/${lang}/articles/${article.slug}`}
                                         />
                                     </div>
                                 ))}
                             </div>
                             <div className="flex justify-around gap-[32px] h-[534px]">
-                                {articles.slice(5, 8).map((article) => (
+                                {articles.slice(5, 8).map((article: any) => (
                                     <div className="flex-1" key={article.id}>
                                         <ArticleCard
                                             image={article.image_url}
                                             title={article.title}
                                             readTime={article.read_time}
-                                            href={`/articles/${article.slug}`}
+                                            cardDict={localeDictionary.card}
+                                            href={`/${lang}/articles/${article.slug}`}
                                         />
                                     </div>
                                 ))}
@@ -142,7 +156,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                         </>
                     ) : (
                         <div className="flex justify-center text-black text-xl h-screen">
-                            <p>No articles for now.</p>
+                            <p>{localeDictionary.articles.cardsConatiner.noArticles}</p>
                         </div>
                     )}
                 </div>
@@ -160,7 +174,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                                 unoptimized
                             />
                             <span className="font-dmSans text-[16px] leading-[1.2] text-[#5e6d7a] pl-1">
-                                Previous
+                                {localeDictionary.articles.paginationElements.previous}
                             </span>
                         </Link>
                     </button>
@@ -182,7 +196,7 @@ export default async function ArticlesPage({ searchParams }: { searchParams: sea
                     <button className={`flex gap-[6px] items-center px-[16px] py-[6px] ${currentPageNumber == endPageNumber && `invisible`}`}>
                         <Link href={`articles?page=${currentPageNumber + 1}`} className="flex items-center">
                             <span className="font-dmSans text-[16px] leading-[1.2] text-[#5e6d7a] pr-1">
-                                Next
+                                {localeDictionary.articles.paginationElements.next}
                             </span>
                             <Image
                                 src={ArrowRight}

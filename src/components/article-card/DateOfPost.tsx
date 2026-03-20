@@ -2,7 +2,7 @@ import Image from "next/image";
 import Calendar from "@/public/assets/calendar.svg";
 
 interface DateOfPostProps {
-    date: string
+    date: string,
 };
 
 export default function DateOfPost({ date }: DateOfPostProps) {

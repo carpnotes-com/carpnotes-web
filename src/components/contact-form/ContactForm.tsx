@@ -1,11 +1,19 @@
 'use client';
 
 import { useState } from "react";
-import { addMessage } from "@/server/database-functions";
+import { addMessage } from "@/src/lib/actions";
 import Image from "next/image";
 import MessageSentImage from "@/public/assets/message-sent.svg";
 
-export default function ContactForm() {
+interface PageProps {
+    inputTextElementsDict: {
+        email: string,
+        message: string,
+        contactTeamButton: string,
+    }
+};
+
+export default function ContactForm({ inputTextElementsDict }: PageProps) {
     const [formData, setFormData] = useState({
         email: '',
         message: ''
@@ -35,13 +43,12 @@ export default function ContactForm() {
         <>
             {!isMessageSent ? (
                 <form className="flex flex-col" method="POST" onSubmit={handleSubmit}>
-                    <div className="w-1xl text-5xl">
-                        Do you have any questions? We're in touch
-                    </div>
                     <div className="w-md">
                         <div className="mt-8">
                             <div className="flex flex-col">
-                                <small>Your email</small>
+                                <small>
+                                    {inputTextElementsDict.email}
+                                </small>
                                 <input
                                     required
                                     className="bg-neutral-100 rounded-lg text-black h-7 px-2 my-1"
@@ -54,7 +61,9 @@ export default function ContactForm() {
                         </div>
                         <div className="mt-5">
                             <div className="flex flex-col">
-                                <small>Your message</small>
+                                <small>
+                                    {inputTextElementsDict.message}
+                                </small>
                                 <textarea
                                     required
                                     className="bg-neutral-100 rounded-lg text-black h-24 px-2 py-1 my-1"
@@ -68,7 +77,9 @@ export default function ContactForm() {
                             <button
                                 className="text-black bg-amber-100 p-4 rounded-full w-full font-sans"
                                 type="submit">
-                                <strong>Contact the team</strong>
+                                <strong>
+                                    {inputTextElementsDict.contactTeamButton}
+                                </strong>
                             </button>
                         </div>
                     </div>

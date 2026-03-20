@@ -1,30 +1,34 @@
 import Image from "next/image";
-import SocialMediaLinks from "@/components/SocialMediaLinks";
-import ArticleCard from "@/components/ArticleCard";
-import ReadTime from "@/components/ReadTime";
-import DateOfPost from "@/components/DateOfPost";
-import { getArticles, getArticleFromSlug } from "@/server/database-functions";
-import { formatToDate } from "@/server/backend-functions";
+import SocialMediaLinks from "@/src/components/page-components/SocialMediaLinks";
+import ArticleCard from "@/src/components/article-card/ArticleCard";
+import ReadTime from "@/src/components/article-card/ReadTime";
+import DateOfPost from "@/src/components/article-card/DateOfPost";
+import { getArticles, getArticleFromSlug } from "@/src/lib/actions";
+import { formatToDate } from "@/src/lib/formatFunctions";
+import { Locale } from "@/src/lib/dictionaries";
+import { getDictionary } from "@/src/lib/dictionaries";
 
-type paramsType = Promise<{ [key: string]: string | string[] | undefined }>;
+type paramsType = Promise<{ lang: Locale, slug: string }>;
 
 export default async function ArticleDetailPage({ params }: { params: paramsType }) {
-    const { slug } = await params;
-    const slugString = String(slug);
+    const { lang, slug } = await params;
 
-    const { article: mainArticle } = await getArticleFromSlug(slugString);
+    const localeDictionary = await getDictionary(lang);
 
-    const contentArray = mainArticle.content.split('\n');
+    const { article: mainArticle } = await getArticleFromSlug(lang, slug);
+
+    let contentArray = mainArticle.content.split('\n');
 
     // Calculating indexes for content array (headers and paragraphs) handling
+
     var endOfContentArray = contentArray.length;
     var halfOfContentArray = Math.floor(contentArray.length / 2);
 
     halfOfContentArray % 2 == 1 && halfOfContentArray++;
 
-    const mainArticleFormattedDate = formatToDate(mainArticle.date);
+    const mainArticleFormattedDate = await formatToDate(lang, mainArticle.date);
 
-    const { articles: recommendedArticles } = await getArticles(3);
+    const { articles: recommendedArticles } = await getArticles(lang, 3);
 
     return (
         <main>
@@ -61,6 +65,7 @@ export default async function ArticleDetailPage({ params }: { params: paramsType
                                     date={mainArticleFormattedDate}
                                 />
                                 <ReadTime
+                                    timeToReadText={localeDictionary.card.timeToReadText}
                                     readTime={mainArticle.read_time}
                                 />
                             </div>
@@ -79,7 +84,7 @@ export default async function ArticleDetailPage({ params }: { params: paramsType
                         {/* Share Section */}
                         <div className="flex flex-col gap-[8px] items-start">
                             <p className="font-dmSans text-[12px] leading-[1.3] text-white">
-                                Share:
+                                {localeDictionary.articleSlug.share}:
                             </p>
                             <SocialMediaLinks />
                         </div>
@@ -130,17 +135,18 @@ export default async function ArticleDetailPage({ params }: { params: paramsType
             <section className="bg-[#0b3c43] px-[60px] py-[80px] rounded-tl-[62px] rounded-tr-[62px]">
                 <div className="max-w-[1280px] mx-auto">
                     <h2 className="font-dmSans font-medium text-[32px] leading-[1.3] text-white mb-[40px]">
-                        Recommended for You
+                        {localeDictionary.articleSlug.recommendedForYou}
                     </h2>
 
                     <div className="flex gap-[32px] h-[534px]">
-                        {recommendedArticles.map((article, index) => (
+                        {recommendedArticles.map((article: any, index: number) => (
                             <div key={index} className="flex-1">
                                 <ArticleCard
                                     image={article.image_url}
                                     title={article.title}
                                     readTime={article.read_time}
-                                    href={`/articles/${article.slug}`}
+                                    cardDict={localeDictionary.card}
+                                    href={`/${lang}/articles/${article.slug}`}
                                 />
                             </div>
                         ))}

@@ -1,10 +1,17 @@
 import Image from "next/image";
-import StoreButtons from "@/components/StoreButtons";
+import StoreButtons from "@/src/components/page-components/StoreButtons";
 import HeroBackground from "@/public/assets/hero.jpg"
 import PhoneLeft from "@/public/assets/phone-left.png";
 import PhoneRight from "@/public/assets/phone-right.png";
 
-export default function Hero() {
+interface PageProps {
+    heroDict: {
+        primaryHeader: string,
+        secondaryHeader: string,
+    },
+};
+
+export default function Hero({ heroDict }: PageProps) {
     return (
         <section>
             <div
@@ -14,10 +21,10 @@ export default function Hero() {
                 <div className="flex items-center mx-10 w-full">
                     <div className='flex flex-col w-xl'>
                         <div className='text-white text-7xl'>
-                            Every Catch Has a Story.
+                            {heroDict.primaryHeader}
                         </div>
                         <div className='text-white text-lg my-6'>
-                            Track your catches, share your stories, and connect with anglers like you — all in one place.
+                            {heroDict.secondaryHeader}
                         </div>
                         <StoreButtons />
                     </div>

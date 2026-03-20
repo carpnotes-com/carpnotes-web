@@ -1,0 +1,77 @@
+{
+    "header": {
+        "home": "Home",
+        "blog": "Blog",
+        "contactUs": "Contact Us"
+    },
+    "homepage": {
+        "hero": {
+            "primaryHeader": "Every Catch Has a Story.",
+            "secondaryHeader": "Track your catches, share your stories, and connect with anglers like you — all in one place."
+        },
+        "features": {
+            "primaryHeader": "Your Next-Level Carp Fishing Journey",
+            "secondaryHeader": "A place where passion meets precision, and community meets the great outdoors.",
+            "firstFeature": {
+                "primaryHeader": "Discover",
+                "secondaryHeader": "Find your next perfect lake",
+                "description": "Explore thousands of lakes across Europe with detailed information, maps, facilities, and fishing rules to plan your best session."
+            },
+            "secondFeature": {
+                "primaryHeader": "Log",
+                "secondaryHeader": "Track your catches like a pro",
+                "description": "Easily log fish sizes, bait types, and conditions. Build your personal fishing history and learn from every session."
+            },
+            "thirdFeature": {
+                "primaryHeader": "Connect",
+                "secondaryHeader": "Share your journey with other anglers",
+                "description": "Join a growing community of carp enthusiasts. Share catches, swap tips, and get inspired by real fishing stories."
+            }
+        },
+        "articles": {
+            "primaryHeader": "Tips, Stories & Insights for Every Angler",
+            "buttonText": "Read More Articles"
+        },
+        "aboutUs": {
+            "primaryHeader": "Where Our Journey Began",
+            "aboutAuthors": "Kostiantyn & Alex - Founder of CarpNote",
+            "description": "The story began on May 16, 2009, with the first carp catch — a moment that sparked a passion for fishing. From quiet mornings to the thrill of a perfect catch, we`ve always seen fishing as a way of life. Over time, we tracked patterns and shared stories, but no tool truly captured how anglers think and learn. That`s why we built Carp Notes — an app made by anglers, for anglers. We`re a small team who values every cast and bite. Carp Notes helps log sessions, reflect, and catch smarter. This is just the beginning, and we’re excited to grow with the fishing community."
+        },
+        "callToAction": {
+            "primaryHeader": "Log Your Sessions. Improve Your Skills. Download Today."
+        }
+    },
+    "card": {
+        "timeToReadText": "min read"
+    },
+    "articles": {
+        "featuredArticle": {
+            "readArticleButton": "Read Articles"
+        },
+        "cardsConatiner": {
+            "primaryHeader": "Tips, Stories & Insights for Every Angler",
+            "noArticles": "No articles for now."
+        },
+        "paginationElements": {
+            "previous": "Previous",
+            "next": "Next"
+        }
+    },
+    "articleSlug": {
+        "share": "Share",
+        "recommendedForYou": "Recommended For You"
+    },
+    "contactForm": {
+        "form": {
+            "primaryHeader": "Do you have any questions? We're in touch",
+            "inputTextElements": {
+                "email": "Your Email",
+                "message": "Your message",
+                "contactTeamButton": "Contact Team"
+            }
+        },
+        "socialMedias": {
+            "primaryHeader": "Don't want to fill out the form? Write to us directly - we'll respond quickly."
+        }
+    }
+}

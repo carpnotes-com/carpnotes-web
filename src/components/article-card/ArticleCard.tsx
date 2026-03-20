@@ -1,10 +1,12 @@
-import Image, { StaticImageData } from "next/image"
 import Link from "next/link"
-import ReadTime from "@/components/ReadTime"
+import ReadTime from "@/src/components/article-card/ReadTime"
 
-interface ArticleCardProps {
+interface ArticleCardProps {    
     image: string,
     readTime: string,
+    cardDict: {
+        timeToReadText: string,
+    },
     title: string,
     href: string,
     additional_styles?: string,
@@ -13,6 +15,7 @@ interface ArticleCardProps {
 export default function ArticleCard({
     image,
     readTime,
+    cardDict,
     title,
     href,
     additional_styles,
@@ -30,8 +33,9 @@ export default function ArticleCard({
             >
             </div>
             <div className="absolute flex flex-col bottom-0 pl-4 pb-14">
-                <div className="flex flex-col h-28">
+                <div className="flex flex-col h-31">
                     <ReadTime
+                    timeToReadText={cardDict.timeToReadText}
                     additionalStyles="mr-auto"
                     readTime={readTime}
                     />
