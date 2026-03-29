@@ -42,7 +42,7 @@ export default async function Articles({ articlesDict, cardDict, locale }: PageP
                                     image={article.image_url}
                                     readTime={article.read_time}
                                     cardDict={cardDict}
-                                    title={article.title}
+                                    title={article.article_localization.title}
                                     href={`/${locale}/articles/${article.slug}`}
                                     additional_styles="w-md"
                                 />
