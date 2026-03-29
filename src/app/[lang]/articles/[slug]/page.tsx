@@ -17,7 +17,7 @@ export default async function ArticleDetailPage({ params }: { params: paramsType
 
     const { article: mainArticle } = await getArticleFromSlug(lang, slug);
 
-    let contentArray = mainArticle.content.split('\n');
+    let contentArray = mainArticle.article_localization.content.split('\n');
 
     // Calculating indexes for content array (headers and paragraphs) handling
 
@@ -73,10 +73,10 @@ export default async function ArticleDetailPage({ params }: { params: paramsType
                             {/* Title & Description */}
                             <div className="flex flex-col gap-[16px]">
                                 <h1 className="font-dmSans font-medium text-[44px] leading-[1.1] tracking-[-0.88px] text-white w-[860px]">
-                                    {mainArticle.title}
+                                    {mainArticle.article_localization.title}
                                 </h1>
                                 <p className="font-dmSans text-[22px] leading-[1.3] text-[#e9ebea] w-[683px]">
-                                    {mainArticle.description}
+                                    {mainArticle.article_localization.description}
                                 </p>
                             </div>
                         </div>
@@ -143,7 +143,7 @@ export default async function ArticleDetailPage({ params }: { params: paramsType
                             <div key={index} className="flex-1">
                                 <ArticleCard
                                     image={article.image_url}
-                                    title={article.title}
+                                    title={article.article_localization.title}
                                     readTime={article.read_time}
                                     cardDict={localeDictionary.card}
                                     href={`/${lang}/articles/${article.slug}`}

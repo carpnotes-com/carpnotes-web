@@ -53,7 +53,7 @@ export default async function ArticlesPage(
                                 {/* Background image */}
                                 <Image
                                     src={featuredArticle.image_url}
-                                    alt={featuredArticle.title}
+                                    alt={featuredArticle.article_localization.title}
                                     fill
                                     className="object-cover"
                                     unoptimized
@@ -84,10 +84,10 @@ export default async function ArticlesPage(
                                     {/* Title & Description */}
                                     <div className="flex flex-col gap-[16px]">
                                         <h1 className="font-dmSans font-medium text-[44px] leading-[1.1] tracking-[-0.88px] text-white w-[860px]">
-                                            {featuredArticle.title}
+                                            {featuredArticle.article_localization.title}
                                         </h1>
                                         <p className="font-dmSans text-[22px] leading-[1.3] text-[#e9ebea] w-[683px]">
-                                            {featuredArticle.description}
+                                            {featuredArticle.article_localization.description}
                                         </p>
                                     </div>
 
@@ -119,7 +119,7 @@ export default async function ArticlesPage(
                                     <div className={`${!isFirstArticleAppeared && index == 0 ? `flex-1` : `w-[365.33px]`}`} key={article.id}>
                                         <ArticleCard
                                             image={article.image_url}
-                                            title={article.title}
+                                            title={article.article_localization.title}
                                             readTime={article.read_time}
                                             cardDict={localeDictionary.card}
                                             href={`/${lang}/articles/${article.slug}`}
@@ -132,7 +132,7 @@ export default async function ArticlesPage(
                                     <div className="flex-1" key={article.id}>
                                         <ArticleCard
                                             image={article.image_url}
-                                            title={article.title}
+                                            title={article.article_localization.title}
                                             readTime={article.read_time}
                                             cardDict={localeDictionary.card}
                                             href={`/${lang}/articles/${article.slug}`}
@@ -145,7 +145,7 @@ export default async function ArticlesPage(
                                     <div className="flex-1" key={article.id}>
                                         <ArticleCard
                                             image={article.image_url}
-                                            title={article.title}
+                                            title={article.article_localization.title}
                                             readTime={article.read_time}
                                             cardDict={localeDictionary.card}
                                             href={`/${lang}/articles/${article.slug}`}
