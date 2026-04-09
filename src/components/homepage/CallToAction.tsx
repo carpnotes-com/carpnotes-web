@@ -11,20 +11,37 @@ interface PageProps {
 
 export default async function CallToAction({ callToActionDict }: PageProps) {
     return (
-        <section className="bg-gradient-to-r from-teal-500 to-teal-950 flex items-center min-h-screen">
-            <div className="mx-10 flex items-center">
-                <div className="w-1/3 mr-auto">
+        // Backgorund mobile / desktop
+        <section className="
+        bg-linear-to-r from-teal-500 to-teal-950 flex items-center py-23
+        md:py-0 md:min-h-screen
+        ">
+            
+            {/* Content */}
+            <div className="
+            mx-6 flex flex-col-reverse
+            md:flex-row md:mx-10 md:items-center
+            ">
+                {/* Header with store buttons */}
+                <div className="
+                md:w-1/3
+                ">
+
+                    {/* Header */}
                     <Title
                         text={callToActionDict.primaryHeader}
-                        style="text-white mb-2"
+                        additionalStyles="text-white my-4 md:my-0 md:mb-8"
                     />
+
+                    {/* Store buttons */}
                     <StoreButtons />
                 </div>
 
+                {/* Fish image */}
                 <Image
                     src={Fish}
                     alt="Fish"
-                    className="w-2xl"
+                    className="w-3/6 md:ml-auto"
                 />
             </div>
         </section>

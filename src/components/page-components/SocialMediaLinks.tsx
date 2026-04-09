@@ -6,23 +6,36 @@ import FacebookLogo from "@/public/assets/facebook-logo.svg";
 
 export default function SocialMediaLinks() {
     return (
-        <div className="inline-flex">
-            <Link href='https://www.tiktok.com/'>
+        <div className="
+        flex gap-5
+        ">
+
+            {/* TikTok */}
+            <Link href='https://www.tiktok.com/' className="
+            shrink-0
+            ">
                 <Image
                     src={TikTokLogo}
                     alt="TikTok"
                     width={28}
                 />
             </Link>
-            <Link href='https://www.instagram.com/'>
+
+            {/* Instagram */}
+            <Link href='https://www.instagram.com/' className="
+            shrink-0
+            ">
                 <Image
                     src={InstagramLogo}
                     alt="Instagram"
                     width={28}
-                    className="mx-4"
                 />
             </Link>
-            <Link href='https://www.facebook.com/'>
+
+            {/* Facebook */}
+            <Link href='https://www.facebook.com/' className="
+            shrink-0
+            ">
                 <Image
                     src={FacebookLogo}
                     alt="Facebook"
