@@ -41,7 +41,7 @@ export default function Header({ headerDict, locale }: ComponentProps) {
 
     return (    
         <header className={`
-        bg-[#0b3c43]/90 px-4 py-3.75 flex items-center fixed w-full backdrop-blur-md top-0 z-1 ${isDown ? '-translate-y-full' : 'translate-y-0'}
+        bg-[#0b3c43]/90 px-4 py-3.75 flex items-center fixed w-full backdrop-blur-md top-0 z-1 transition-transform ${isDown ? '-translate-y-full' : 'translate-y-0'}
         md:px-15
         `}>
 
