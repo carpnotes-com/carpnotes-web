@@ -3,20 +3,30 @@ import Image from "next/image";
 import GooglePlay from "@/public/assets/google_play.svg"
 import Apple from "@/public/assets/apple.svg"
 
-export default function StoreButtons() {
+interface StoreButtonsProps {
+    additionalStyles?: string,
+};
+
+export default function StoreButtons({ additionalStyles }: StoreButtonsProps) {
     return (
-        <div className='flex items-center'>
+        <div className={`
+        flex items-center justify-center gap-3 ${additionalStyles}
+        md:justify-start
+        `}>
+
+            {/* GooglePlay image */}
             <Link href='https://play.google.com/'>
                 <Image
                     src={GooglePlay}
-                    alt='GooglePlay'
+                    alt="GooglePlay"
                 />
             </Link>
+
+            {/* AppStore image */}
             <Link href='https://apps.apple.com/'>
                 <Image
                     src={Apple}
-                    alt='GooglePlay'
-                    className='ml-3'
+                    alt="AppStore"
                 />
             </Link>
         </div>

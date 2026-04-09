@@ -14,22 +14,42 @@ export default function FeaturesCard({
     description,
 }: FeaturesCardProps) {
     return (
-        <div className="w-md">
+        <div className="
+        w-full
+        ">
+
+            {/* Image */}
             <Image
                 src={image}
                 alt="Image"
-                className="my-2 w-30 h-30"
+                className="
+                my-2 w-30 h-30
+                "
             />
-            <div className="text-xl text-black font-semibold ">
+
+            {/* Title */}
+            <div className="
+            text-xl text-black font-semibold
+            ">
                 {title}
             </div>
-            <span className="text-black">
+
+            {/* Subdescription */}
+            <span className="
+            text-black
+            ">
                 {subdescription}
             </span>
 
-            <hr className="h-px bg-gray-400 border-0 my-2 " />
+            {/* Horizontal line */}
+            <hr className="
+            h-px bg-gray-400 border-0 my-2
+            "/>
 
-            <div className="text-black">
+            {/* Description */}
+            <div className="
+            text-black
+            ">
                 {description}
             </div>
         </div>

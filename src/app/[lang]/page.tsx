@@ -29,7 +29,7 @@ export default async function Home({ params }: { params: paramsType }) {
                 aboutUsDict={localeDictionary.homepage.aboutUs}
             />
             <CallToAction
-                callToActionDict={localeDictionary.homepage.callToAction}
+                callToActionDict={localeDictionary.callToAction}
             />
         </main>
     );

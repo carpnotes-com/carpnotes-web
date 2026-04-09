@@ -70,12 +70,13 @@ export default function ContactForm({ inputTextElementsDict }: PageProps) {
                                     style={{ resize: 'none' }}
                                     name="message"
                                     value={formData.message}
-                                    onChange={handleChange}></textarea>
+                                    onChange={handleChange}
+                                />
                             </div>
                         </div>
                         <div className="mt-5">
                             <button
-                                className="text-black bg-amber-100 p-4 rounded-full w-full font-sans"
+                                className="text-black bg-amber-100 p-4 rounded-full w-full font-dmSans"
                                 type="submit">
                                 <strong>
                                     {inputTextElementsDict.contactTeamButton}

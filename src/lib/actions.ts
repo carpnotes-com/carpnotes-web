@@ -6,7 +6,13 @@ export async function getArticles(locale: string, quantity: number, from?: numbe
         var { data: articles, error: errorArticles } = await supabase
             .from('article')
             .select(`
-                *,
+                id,
+                image_url,
+                read_time,
+                slug,
+                is_featured,
+                date,
+                content_image,
                 article_localization!inner (
                     title,
                     description,
@@ -23,7 +29,13 @@ export async function getArticles(locale: string, quantity: number, from?: numbe
         var { data: articles, error: errorArticles } = await supabase
             .from('article')
             .select(`
-                *,
+                id,
+                image_url,
+                read_time,
+                slug,
+                is_featured,
+                date,
+                content_image,
                 article_localization!inner (
                     title,
                     description,
@@ -60,10 +72,16 @@ export async function getCountArticles() {
 };
 
 export async function getFeaturedArticle(locale: string) {
-    const { data: featuredArticle, error: errorFeaturedArticle } = await supabase
+    const { data: featuredArticle } = await supabase
         .from('article')
         .select(`
-                *,
+                id,
+                image_url,
+                read_time,
+                slug,
+                is_featured,
+                date,
+                content_image,
                 article_localization!inner (
                     title,
                     description,
@@ -78,11 +96,11 @@ export async function getFeaturedArticle(locale: string) {
         .limit(1)
         .single() as any;
 
-    featuredArticle.article_localization = featuredArticle.article_localization[0];
-
-    return {
-        featuredArticle, errorFeaturedArticle
+    if (featuredArticle) {
+        featuredArticle.article_localization = featuredArticle.article_localization[0];
     };
+
+    return featuredArticle;
 };
 
 export async function addMessage(email: string, message: string) {
@@ -97,7 +115,13 @@ export async function getArticleFromSlug(locale: string, slug: string) {
     const { data: article, error: getArticleFromSlugError } = await supabase
         .from('article')
         .select(`
-                *,
+                id,
+                image_url,
+                read_time,
+                slug,
+                is_featured,
+                date,
+                content_image,
                 article_localization!inner (
                     title,
                     description,
