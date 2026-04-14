@@ -13,7 +13,7 @@ export default async function CallToAction({ callToActionDict }: PageProps) {
     return (
         // Backgorund mobile / desktop
         <section className="
-        bg-linear-to-r from-teal-500 to-teal-950 flex items-center py-23
+        bg-linear-to-r from-[#1C96A8] to-[#0B3B42] flex items-center py-23
         md:py-0 md:min-h-screen
         ">
             

@@ -11,6 +11,7 @@ import { formatToDate } from "@/src/lib/formatFunctions";
 import { Locale } from "@/src/lib/dictionaries";
 import { getDictionary } from "@/src/lib/dictionaries";
 import Title from "@/src/components/page-components/Title";
+import CallToAction from "@/src/components/homepage/CallToAction";
 
 type paramsType = Promise<{ lang: Locale }>;
 type searchParamsType = Promise<{ [key: string]: string | string[] | undefined }>;
@@ -315,6 +316,9 @@ export default async function ArticlesPage(
                     )}
                 </div>
             </section>
+            <CallToAction
+                callToActionDict={localeDictionary.callToAction}
+            />
         </main>
     );
 }

@@ -3,7 +3,6 @@ import Image from "next/image";
 import SocialMediaLinks from "@/src/components/page-components/SocialMediaLinks";
 import ContactForm from "@/src/components/contact-form/ContactForm";
 import { getDictionary, Locale } from "@/src/lib/dictionaries";
-import Title from "@/src/components/page-components/Title";
 
 type paramsType = Promise<{ lang: Locale }>;
 
@@ -11,27 +10,41 @@ export default async function ContactUsPage({ params }: { params: paramsType }) 
     const { lang } = await params;
     const localeDictionary = await getDictionary(lang);
 
-    // TODO: mobile version
     return (
         <main>
-            <div className="bg-linear-to-r from-teal-500 to-teal-950 h-screen">
-                <div className="flex px-14 py-25 h-screen">
-                    <div>
-                        <Title
-                        text={localeDictionary.contactForm.form.primaryHeader}
+
+            {/* Content */}
+            <div className="
+            flex px-6 py-25 bg-linear-to-r from-[#1C96A8] to-[#0B3B42] min-h-screen flex-col justify-center
+            md:flex-row md:px-14 md:items-center
+            ">
+
+                <div className="
+                flex w-full justify-between gap-12 flex-col
+                md:flex-row md:gap-25
+                ">
+                    {/* Contact form */}
+                    <ContactForm
+                        formDict={localeDictionary.contactForm.form}
+                        messageSentDict={localeDictionary.contactForm.messageSent}
+                    />
+
+                    {/* Socials and fish image */}
+                    <div className="
+                    flex items-center flex-col-reverse gap-6
+                    md:flex-col md:items-start
+                    ">
+                        <Image
+                            src={Fish}
+                            alt="alt"
+                            width={300}
                         />
-                        <ContactForm
-                            inputTextElementsDict={localeDictionary.contactForm.form.inputTextElements}
-                        />
-                    </div>
-                    <div className="flex ml-auto items-center">
-                        <div className="w-md mx-10">
-                            <Image
-                                src={Fish}
-                                alt="alt"
-                                width={300}
-                            />
-                            <div className="my-10 text-xl font-dmSans">
+                        <div className="
+                        flex flex-col gap-6
+                        ">
+                            <div className="
+                            text-xl font-dmSans
+                            ">
                                 {localeDictionary.contactForm.socialMedias.primaryHeader}
                             </div>
                             <SocialMediaLinks />

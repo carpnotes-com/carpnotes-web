@@ -19,9 +19,9 @@ export default function ArticleCard({ image, readTime, cardDict, title, href }: 
 
             {/* Background image */}
             <div
-                className={`
-                    bg-cover bg-center rounded-xl flex flex-col h-full
-                    `}
+                className="
+                bg-cover bg-center rounded-xl flex flex-col h-full
+                "
                 style={{ backgroundImage: `url(${image})` }}
             >
             </div>

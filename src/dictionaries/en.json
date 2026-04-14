@@ -75,6 +75,9 @@
         },
         "socialMedias": {
             "primaryHeader": "Don't want to fill out the form? Write to us directly - we'll respond quickly."
+        },
+        "messageSent": {
+            "success": "Message sent successfully"
         }
     }
 }

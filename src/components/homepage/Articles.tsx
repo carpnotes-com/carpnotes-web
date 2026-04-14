@@ -1,5 +1,4 @@
 import Title from "@/src/components/page-components/Title";
-import ArticleCard from "@/src/components/article-card/ArticleCard";
 import { getArticles } from "@/src/lib/actions";
 import Button from "@/src/components/page-components/Button";
 import { Locale } from "@/src/lib/dictionaries";
@@ -25,7 +24,7 @@ export default async function Articles({ articlesDict, cardDict, locale }: PageP
             {/* If there is articles - show them, if not - skip this section */}
             {articles.length > 0 && (
                 <section className="
-                bg-cyan-900
+                bg-[#0B3C43]
                 ">
 
                     {/* Content */}

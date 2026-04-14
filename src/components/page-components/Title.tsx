@@ -6,7 +6,7 @@ interface TitleProps {
 export default function Title({ text, additionalStyles }: TitleProps) {
     return (
         <h1 className={`
-        text-3xl font-medium w- ${additionalStyles}
+        text-3xl font-medium ${additionalStyles}
         md:text-5xl
         `}>
             {text}

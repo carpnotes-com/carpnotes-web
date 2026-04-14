@@ -38,7 +38,7 @@ export default function Language({ additionalStyles }: ComponentProps) {
                     value="en"
                     onChange={handleChange}
                     className="
-                    appearance-none w-4 h-4 rounded-full border checked:border-3 checked:border-amber-100
+                    appearance-none w-4 h-4 rounded-full border checked:border-3 checked:border-[#DCC49F]
                     "
                 />
 
@@ -61,7 +61,7 @@ export default function Language({ additionalStyles }: ComponentProps) {
                     value="ua"
                     onChange={handleChange}
                     className="
-                    appearance-none w-4 h-4 rounded-full border checked:border-3 checked:border-amber-100
+                    appearance-none w-4 h-4 rounded-full border checked:border-3 checked:border-[#DCC49F]
                     "
                 />
 
