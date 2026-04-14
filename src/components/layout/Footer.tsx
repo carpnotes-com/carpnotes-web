@@ -2,13 +2,32 @@ import SocialMediaLinks from "@/src/components/page-components/SocialMediaLinks"
 
 export default function Footer() {
     return (
-        <footer className="bg-gradient-to-r from-teal-600 to-teal-950">
-            <hr className="h-px bg-gray-400 border-0" />
-            <div className="mx-10 py-10 flex items-center">
-                <div className="text-white mr-auto">
+        <footer className="
+        bg-linear-to-r from-[#187C8C] to-[#0B3B42]
+        ">
+
+            {/* Line */}
+            <hr className="
+            h-px bg-[#DCE3EB66] border-0
+            "/>
+
+            {/* Content */}
+            <div className="
+            mx-6 py-10 flex items-center
+            md:mx-10
+            ">
+                
+                {/* Copyright */}
+                <div className="
+                text-white mr-auto
+                ">
                     © 2025 CarpNotes
                 </div>
-                <div className="flex">
+
+                {/* Social medias */}
+                <div className="
+                flex
+                ">
                     <SocialMediaLinks />
                 </div>
             </div>

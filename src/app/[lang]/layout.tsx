@@ -4,7 +4,8 @@ import "./globals.css";
 import Header from "@/src/components/layout/Header";
 import Footer from "@/src/components/layout/Footer";
 import { getDictionary, Locale } from "@/src/lib/dictionaries";
-import { Suspense } from "react";
+import { Suspense, use } from "react";
+import { headers } from "next/headers";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -45,7 +46,9 @@ export default async function RootLayout({
     return (
         <html lang={lang}>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} antialiased`}
+                className={`
+                    ${geistSans.variable} ${geistMono.variable} ${dmSans.variable} antialiased
+                    `}
             >
                 <Suspense>
                     <Header

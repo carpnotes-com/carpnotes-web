@@ -9,13 +9,22 @@ interface ReadTimeProps {
 
 export default function ReadTime({ timeToReadText, readTime, additionalStyles }: ReadTimeProps) {
     return (
-        <div className={`font-extralight font-sans text-sm text-white bg-white/15 rounded-full p-1.5 flex items-center ${additionalStyles}`}>
+        <div className={`
+        font-extralight font-sans text-[11px] text-white bg-white/15 rounded-full p-1.5 flex items-center backdrop-blur-sm ${additionalStyles}
+        md:text-sm
+        `}>
+            
+            {/* Watches image */}
             <Image
                 src={Watch}
                 alt="Picture"
                 width={16}
-                className="mr-1"
+                className="
+                mr-1
+                "
             />
+
+            {/* Read time with text */}
             {readTime} {timeToReadText}
         </div>
     );

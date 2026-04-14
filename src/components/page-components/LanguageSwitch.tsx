@@ -22,8 +22,14 @@ export default function Language({ additionalStyles }: ComponentProps) {
     };
 
     return (
-        <fieldset className={`flex gap-4 ${additionalStyles}`}>
-            <div className='flex items-center'>
+        <fieldset className={`
+        flex gap-4 ${additionalStyles}`
+        }>
+
+            {/* English locale markup */}
+            <div className="
+            flex items-center
+            ">
                 <input
                     type="radio"
                     name="current-locale"
@@ -31,14 +37,22 @@ export default function Language({ additionalStyles }: ComponentProps) {
                     checked={locale === `en`}
                     value="en"
                     onChange={handleChange}
-                    className='appearance-none w-4 h-4 rounded-full border checked:border-3 checked:border-amber-100'
+                    className="
+                    appearance-none w-4 h-4 rounded-full border checked:border-3 checked:border-[#DCC49F]
+                    "
                 />
-                <label htmlFor="en-locale" className="ml-1">
+
+                <label htmlFor="en-locale" className="
+                ml-1
+                ">
                     EN
                 </label>
             </div>
 
-            <div className='flex items-center'>
+            {/* Ukrainian locale markup */}
+            <div className="
+            flex items-center
+            ">
                 <input
                     type="radio"
                     name="current-locale"
@@ -46,9 +60,14 @@ export default function Language({ additionalStyles }: ComponentProps) {
                     checked={locale === `ua`}
                     value="ua"
                     onChange={handleChange}
-                    className='appearance-none w-4 h-4 rounded-full border checked:border-3 checked:border-amber-100'
+                    className="
+                    appearance-none w-4 h-4 rounded-full border checked:border-3 checked:border-[#DCC49F]
+                    "
                 />
-                <label htmlFor="ua-locale" className="ml-1">
+
+                <label htmlFor="ua-locale" className="
+                ml-1
+                ">
                     UA
                 </label>
             </div>

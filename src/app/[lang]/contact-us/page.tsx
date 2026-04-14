@@ -12,24 +12,39 @@ export default async function ContactUsPage({ params }: { params: paramsType }) 
 
     return (
         <main>
-            <div className="bg-gradient-to-r from-teal-500 to-teal-950 h-screen">
-                <div className="flex px-14 py-25 h-screen">
-                    <div>
-                        <div className="text-5xl">
-                            {localeDictionary.contactForm.form.primaryHeader}
-                        </div>
-                        <ContactForm
-                            inputTextElementsDict={localeDictionary.contactForm.form.inputTextElements}
+
+            {/* Content */}
+            <div className="
+            flex px-6 py-25 bg-linear-to-r from-[#1C96A8] to-[#0B3B42] min-h-screen flex-col justify-center
+            md:flex-row md:px-14 md:items-center
+            ">
+
+                <div className="
+                flex w-full justify-between gap-12 flex-col
+                md:flex-row md:gap-25
+                ">
+                    {/* Contact form */}
+                    <ContactForm
+                        formDict={localeDictionary.contactForm.form}
+                        messageSentDict={localeDictionary.contactForm.messageSent}
+                    />
+
+                    {/* Socials and fish image */}
+                    <div className="
+                    flex items-center flex-col-reverse gap-6
+                    md:flex-col md:items-start
+                    ">
+                        <Image
+                            src={Fish}
+                            alt="alt"
+                            width={300}
                         />
-                    </div>
-                    <div className="flex ml-auto items-center">
-                        <div className="w-md mx-10">
-                            <Image
-                                src={Fish}
-                                alt="alt"
-                                width={300}
-                            />
-                            <div className="my-10 text-xl font-dmSans">
+                        <div className="
+                        flex flex-col gap-6
+                        ">
+                            <div className="
+                            text-xl font-dmSans
+                            ">
                                 {localeDictionary.contactForm.socialMedias.primaryHeader}
                             </div>
                             <SocialMediaLinks />

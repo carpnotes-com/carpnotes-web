@@ -28,16 +28,38 @@ interface PageProps {
 
 export default function Features({ featuresDict }: PageProps) {
     return (
-        <section className="flex items-center min-h-screen">
-            <div className="mx-10">
-                <div className="w-1/3">
-                    <Title text={featuresDict.primaryHeader} style="text-black" />
-                    <div className="text-xl my-6 text-black">
+        <section className="
+        flex items-center min-h-screen mx-6 my-14
+        md:mx-10 md:my-0
+        ">
+            {/* Content */}
+            <div>
+
+                {/* Headers */}
+                <div className="
+                w-full
+                ">
+
+                    {/* Primary header */}
+                    <Title
+                        text={featuresDict.primaryHeader}
+                        additionalStyles="text-black"
+                    />
+
+                    {/* Secondary header */}
+                    <div className="
+                    text-lg my-6 text-black
+                    md:text-xl
+                    ">
                         {featuresDict.secondaryHeader}
                     </div>
                 </div>
 
-                <div className="flex gap-10">
+                {/* Features cards */}
+                <div className="
+                flex flex-col gap-10
+                md:flex-row
+                ">
                     <FeaturesCard
                         image={Discover}
                         title={featuresDict.firstFeature.primaryHeader}

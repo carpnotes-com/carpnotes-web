@@ -1,14 +1,14 @@
 interface TitleProps {
     text: string,
-    style?: string
+    additionalStyles?: string
 }
 
-export default function Title({
-    text,
-    style
-}: TitleProps) {
+export default function Title({ text, additionalStyles }: TitleProps) {
     return (
-        <h1 className={`text-5xl font-medium ${style}`}>
+        <h1 className={`
+        text-3xl font-medium ${additionalStyles}
+        md:text-5xl
+        `}>
             {text}
         </h1>
     )
